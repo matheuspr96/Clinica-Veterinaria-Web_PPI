@@ -1,9 +1,7 @@
 body{
     margin: 0px;
 }
-.img{
-    text-align: center;
-}
+
 nav{
     position: -webkit-sticky; /* Safari */
     position: sticky;
