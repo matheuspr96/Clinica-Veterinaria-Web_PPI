@@ -30,3 +30,15 @@ nav li a {
 nav li a:hover {
     background-color: #111;
 }
+
+#zika{
+        width: 70%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        
+}
+
+#logo_login{
+    height: 160px;
+}
