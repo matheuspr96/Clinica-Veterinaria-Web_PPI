@@ -32,13 +32,14 @@ nav li a:hover {
 }
 
 #zika{
-        width: 70%;
+        width: 50%;
         height: 100%;
+        top: 0%;
         margin: 0;
         padding: 0;
         
 }
 
 #logo_login{
-    height: 160px;
+    height:200px;
 }
