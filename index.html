@@ -36,6 +36,32 @@
 			<h2 class="cartao__titulo">Galeria</h2>
 			<div id="imagens"></div>
 		</article>
+
+		<article class="cartao cartao_pag_contato">
+			<h2 class="cartao__titulo">Contato</h2>
+			<form action="#" method="POST">
+				<label for="contato__nome">Nome</label><br>
+				<input type="text" name="contato__nome" id="contato__nome"><br><br>
+
+				<label for="contato__email">Email</label><br>
+				<input type="email" name="contato__email" id="contato__email"><br><br>
+
+				<label>Motivo</label><br>
+				<input type="checkbox" name="motivo" id="m_reclamacao">
+				<label for="m_reclamacao">Reclamação</label><br>
+				<input type="checkbox" name="motivo" id="m_sugestao">
+				<label for="m_sugestao">Sugestão</label><br>
+				<input type="checkbox" name="motivo" id="m_elogio">
+				<label for="m_elogio">Elogio</label><br>
+				<input type="checkbox" name="motivo" id="m_duvida">
+				<label for="m_duvida">Dúvida</label><br><br>
+
+				<label for="contato__mensagem">Mensagem</label><br>
+				<textarea name="contato__mensagem" id="contato__mensagem" cols="30" rows="10"></textarea><br><br>
+
+				<button>Enviar</button>
+			</form>
+		</article>
 	</main>
 
 	<!-- Scripts -->
