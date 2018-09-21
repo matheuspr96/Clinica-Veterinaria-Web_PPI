@@ -43,6 +43,13 @@ body {
 	color: #31343666;
 	transition: 0.1s all ease-in-out;
 }
+.barra-topo__item_botao {
+	float: right;
+	padding: calc((4rem - 2.25rem) / 2) 1rem;
+}
+.barra-topo__botao {
+	display: block;
+}
 .barra-topo:hover .barra-topo__item {
 	color: #313436;
 }
@@ -149,7 +156,6 @@ body {
 	margin: 0.5rem 0;
 	padding: 0.5rem;
 	border-radius: 4px;
-	/* border: 1px solid #CCC; */
 	border: none;
 	outline: none;
 	box-shadow: 0 3px 5px #00000022, /* Essa sombra não tava pegando em cima e tava incomodando a visão, botei outra pra pegar em cima tb */
@@ -166,6 +172,47 @@ body {
 .form__botao {
 	float: right;
 	margin-top: -1rem;
+}
+
+.dialog {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	transition: 0s   visibility linear 0s,
+				0.2s opacity ease-in-out 0s;
+}
+.dialog_escondido {
+	visibility: hidden;
+	opacity: 0;
+	transition: 0s   visibility linear 0.1s,
+				0.1s opacity ease-in-out 0s;
+}
+.dialog__fundo {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #0006;
+}
+.dialog__cartao {
+	display: block;
+	position: absolute;
+	opacity: 1;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%) scale(1);
+	width: calc(100% - 2rem);
+	max-width: 32rem;
+	box-shadow: 0 10px 24px #00000055;
+	z-index: 15;
+	transition: 0.2s transform ease-in-out 0s;
+}
+.dialog_escondido .dialog__cartao {
+	transform: translate(-50%, -50%) scale(0);
+	transition: 0s transform linear 0.1s;
 }
 
 ::-webkit-scrollbar {

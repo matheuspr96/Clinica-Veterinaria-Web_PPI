@@ -49,4 +49,14 @@ $(() => {
 			e.target.style.border = "2px solid transparent";
 		}));
 	});
+
+	/**
+	 * Botao de login
+	 */
+	$("#botao-login").click(e => $("#login-dialog").toggleClass("dialog_escondido"));
+
+	/**
+	 * Dialogs
+	 */
+	$(".dialog__fundo").click(e => $(e.target.parentNode).addClass("dialog_escondido"));
 });

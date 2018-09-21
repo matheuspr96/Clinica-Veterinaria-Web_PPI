@@ -13,10 +13,21 @@
 	<nav class="barra-topo">
 		<ul class="barra-topo__lista">
 			<li class="barra-topo__item barra-topo__item_nome">Clínica</li>
-			<li data-mostra="home" class="barra-topo__item barra-topo__item_clicavel barra-topo__item_selecionado">Home</li>
-			<li data-mostra="galeria" class="barra-topo__item barra-topo__item_clicavel">Galeria</li>
-			<li data-mostra="contato" class="barra-topo__item barra-topo__item_clicavel">Contato</li>
-			<li data-mostra="agendamento" class="barra-topo__item barra-topo__item_clicavel">Agendamento</li>
+			<li class="barra-topo__item barra-topo__item_botao">
+				<button id="botao-login" class="barra-topo__botao botao">Login</button>
+			</li>
+			<li data-mostra="home" class="barra-topo__item barra-topo__item_clicavel barra-topo__item_selecionado">
+				Home
+			</li>
+			<li data-mostra="galeria" class="barra-topo__item barra-topo__item_clicavel">
+				Galeria
+			</li>
+			<li data-mostra="contato" class="barra-topo__item barra-topo__item_clicavel">
+				Contato
+			</li>
+			<li data-mostra="agendamento" class="barra-topo__item barra-topo__item_clicavel">
+				Agendamento
+			</li>
 		</ul>
 	</nav>
 
@@ -39,7 +50,7 @@
 
 		<article class="cartao cartao_pag_contato">
 			<h2 class="cartao__titulo">Contato</h2>
-			<form action="#" method="POST" class="form">
+			<form action="#" method="POST" class="form" onsubmit="return false;">
 				<label for="contato__nome" class="form__label">Nome</label><br>
 				<input type="text" name="contato__nome" id="contato__nome" class="form__text-field"><br><br>
 
@@ -63,6 +74,22 @@
 			</form>
 		</article>
 	</main>
+
+	<aside id="login-dialog" class="dialog dialog_escondido">
+		<div class="dialog__fundo"></div>
+		<div class="dialog__cartao cartao">
+			<h3 class="cartao__titulo">Login</h3>
+			<form action="#" method="POST" class="form" onsubmit="return false;">
+				<label for="login__login" class="form__label">Login</label><br>
+				<input type="text" name="login__login" id="login__login" class="form__text-field"><br><br>
+
+				<label for="login__senha" class="form__label">Senha</label><br>
+				<input type="password" name="login__senha" id="login__senha" class="form__text-field"><br><br>
+
+				<button class="form__botao botao">Entrar</button>
+			</form>
+		</div>
+	</aside>
 
 	<!-- Scripts -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
