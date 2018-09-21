@@ -121,23 +121,29 @@
 		<article class="cartao cartao_pag_agendamento">
 			<h2 class="cartao__titulo">Agendamento</h2>
 			<form action="#" method="POST" class="form" onsubmit="return false;">
-				<label class="form__label">Especialidade</label><br><br>
-				<!-- Lista com especialidades -->
+				<label class="form__label">Especialidade</label><br>
+				<select class="form__text-field" name="agendamento__especialidade" id="agendamento__especialidade">
+					<option value="oftamologia">Oftamologia</option>
+					<option value="neurologia">Neurologia</option>
+					<option value="circurgia">Circurgia</option>
+				</select><br><br>
+				
+				<label class="form__label">Médico</label><br>
+				<button class="button">Selecionar</button><br><br>
 
-				<label class="form__label">Médico</label><br><br>
-				<!-- Lista com os médicos usando MODAL para selecionar -->
+				<label for="consulta" class="form__label">Data consulta</label><br>
+				<input type="date" name="agendamento__consulta" id="agendamento__consulta"><br><br>
 
-				<label class="form__label">Data consulta <input type="date" name="consulta"> </label><br><br>
-
-				<label class="form__label">Horário</label><br><br>
-				<!-- Lista horario -->
+				<label class="form__label">Horário</label><br>
+				<input type="time" name="agendamento__horario" id="agendamento__horario" class="form__text-field"><br><br>
 
 				<label for="agendamento__nome" class="form__label">Nome</label><br>
 				<input type="text" name="agendamento__nome" id="agendamento__nome" class="form__text-field"><br><br>
 
 				<label for="agendamento__telefone" class="form__label">Telefone</label><br>
 				<input type="text" name="agendamento__telefone" id="agendamento__telefone" class="form__text-field"><br><br>
-				<button class="form__botao botao">Enviar</button>
+
+				<button class="form__botao botao">Agendar</button>
 			</form>
 
 		</article>
