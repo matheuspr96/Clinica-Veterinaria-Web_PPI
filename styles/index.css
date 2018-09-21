@@ -215,6 +215,12 @@ body {
 	transition: 0s transform linear 0.1s;
 }
 
+.logo_home {
+	width: 22rem;
+	height: 16rem;
+	margin: 0.5rem;
+}
+
 ::-webkit-scrollbar {
 	background-color: #0000000A;
 	width: 0.5rem;
