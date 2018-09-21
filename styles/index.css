@@ -116,6 +116,10 @@ body {
 	text-align: center;
 }
 
+.cartao_pag_agendamento{
+	
+}
+
 .imagem {
 	width: 10rem;
 	height: 10rem;
@@ -151,6 +155,7 @@ body {
 
 .form {}
 .form__label {}
+
 .form__text-field {
 	max-width: 100%;
 	margin: 0.5rem 0;
