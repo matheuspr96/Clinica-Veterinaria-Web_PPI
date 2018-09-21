@@ -59,4 +59,9 @@ $(() => {
 	 * Dialogs
 	 */
 	$(".dialog__fundo").click(e => $(e.target.parentNode).addClass("dialog_escondido"));
+
+	/**
+	 * Footer
+	 */
+	$(".footer").text(`\u00A9 ${(new Date()).getFullYear()} Zika-PET`);
 });
