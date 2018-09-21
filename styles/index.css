@@ -40,13 +40,20 @@ body {
 .barra-topo__item_clicavel {
 	float: right;
 	cursor: pointer;
-	transition: 0.1s background-color ease-in-out;
+	color: #31343666;
+	transition: 0.1s all ease-in-out;
+}
+.barra-topo:hover .barra-topo__item {
+	color: #313436;
 }
 .barra-topo__item_clicavel:hover {
 	background-color: #00000006;
 }
 .barra-topo__item_clicavel:active {
 	background-color: #00000012;
+}
+.barra-topo__item_selecionado {
+	color: #313436;
 }
 
 .pagina {
