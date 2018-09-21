@@ -96,8 +96,26 @@ body {
 	opacity: 1;
 }
 .cartao__titulo {
+	text-align: left;
 	font-size: 2rem;
 	font-family: Montserrat, Roboto, Arial, sans-serif;
 	font-weight: 400;
 	margin-bottom: 1rem;
+}
+
+.cartao_pag_galeria {
+	text-align: center;
+}
+
+.imagem {
+	width: 10rem;
+	height: 10rem;
+	margin: 0.5rem;
+	border-radius: 4px;
+	transition: 0.2s opacity ease-in-out;
+	box-shadow: 0 2px 4px #00000033;
+	opacity: 0;
+}
+.imagem_visivel {
+	opacity: 1;
 }
