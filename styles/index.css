@@ -5,11 +5,7 @@
 }
 
 li { list-style: none; }
-a { text-decoration: none; }
-
-html {
-	font-size: 16px;
-}
+html { font-size: 16px; }
 
 body {
 	background-color: #ECEFF1;
@@ -29,9 +25,6 @@ body {
 	background-color: #FFF;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 	z-index: 10;
-}
-.barra-topo__lista {
-	list-style: none;
 }
 .barra-topo__item {
 	display: inline-block;
@@ -79,8 +72,7 @@ body {
 	left: 0;
 	width: 100%;
 	height: calc(100vh - 4rem);
-	overflow-x: hidden;
-	overflow-y: visible;
+	overflow: hidden visible;
 }
 
 .header {
@@ -101,7 +93,6 @@ body {
 
 .cartao {
 	display: none;
-	opacity: 0;
 	margin: 1rem auto;
 	padding: 2rem;
 	width: calc(100% - 2rem);
@@ -110,10 +101,7 @@ body {
 	border-radius: 4px;
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
-.cartao_visivel {
-	display: block;
-	opacity: 1;
-}
+.cartao_visivel { display: block; }
 .cartao__titulo {
 	display: inline-block;
 	width: 100%;
@@ -134,9 +122,7 @@ body {
 	margin-bottom: 0.25rem;
 }
 
-.cartao_pag_galeria {
-	text-align: center;
-}
+.cartao_pag_galeria { text-align: center; }
 
 .imagem {
 	width: 10rem;
@@ -148,9 +134,7 @@ body {
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 	opacity: 0;
 }
-.imagem_visivel {
-	opacity: 1;
-}
+.imagem_visivel { opacity: 1; }
 
 .botao {
 	border: none;
@@ -179,7 +163,7 @@ body {
 	border-radius: 4px;
 	border: none;
 	outline: none;
-	box-shadow: 0 3px 5px rgba(0, 0, 0, 0.14), /* Essa sombra não tava pegando em cima e tava incomodando a visão, botei outra pra pegar em cima tb */
+	box-shadow: 0 3px 5px rgba(0, 0, 0, 0.14),
 				0 0   6px rgba(0, 0, 0, 0.07);
 }
 .form__select {
@@ -323,7 +307,7 @@ body {
 	color: rgba(49, 52, 54, 0.6);
 }
 .menu__item:hover {
-	color: rgba(49, 52, 54, 1) !important; /* TODO tirar important */
+	color: rgba(49, 52, 54, 1) !important;
 }
 
 ::-webkit-scrollbar {
