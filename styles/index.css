@@ -17,6 +17,9 @@ body {
 	color: #313436;
 }
 
+.texto-grande { font-size: 125%; }
+.texto-maior { font-size: 175%; }
+
 .barra-topo {
 	position: fixed;
 	top: 0;
@@ -112,19 +115,27 @@ body {
 	opacity: 1;
 }
 .cartao__titulo {
+	display: inline-block;
+	width: 100%;
 	text-align: left;
 	font-size: 2rem;
 	font-family: Montserrat, Roboto, Arial, sans-serif;
 	font-weight: 400;
 	margin-bottom: 1rem;
 }
+.cartao__subtitulo {
+	display: inline-block;
+	width: 100%;
+	text-align: left;
+	font-size: 1.6rem;
+	font-family: Montserrat, Roboto, Arial, sans-serif;
+	font-weight: 400;
+	margin-top: 1.5rem;
+	margin-bottom: 0.25rem;
+}
 
 .cartao_pag_galeria {
 	text-align: center;
-}
-
-.cartao_pag_agendamento{
-	
 }
 
 .imagem {
@@ -159,9 +170,6 @@ body {
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 	background-color: #67c56a;
 }
-
-.form {}
-.form__label {}
 
 .form__text-field {
 	max-width: 100%;
@@ -228,9 +236,12 @@ body {
 }
 
 .logo-home {
-	width: 22rem;
-	height: 16rem;
+	width: 50%;
+	float: left;
 	margin: 0.5rem;
+}
+@media screen and (max-width: 480px) {
+	.logo-home { width: 100%; }
 }
 
 .footer {
