@@ -5,14 +5,15 @@ $(() => {
 	 * Menu navbar
 	 */
 	$("[data-mostra]").click(e => {
+		let mostra = $(e.target).data("mostra");
 		// Esconde cartoes
 		$(".cartao").removeClass("cartao_visivel");
 		// Desseleciona item selecionado
 		$("[data-mostra]").removeClass("barra-topo__item_selecionado");
 		// Seleciona novo item
-		$(e.target).addClass("barra-topo__item_selecionado");
+		$(`.barra-topo__item[data-mostra="${mostra}"]`).addClass("barra-topo__item_selecionado");
 		// Mostra cartao desejado
-		$(".cartao_pag_" + $(e.target).data("mostra")).addClass("cartao_visivel");
+		$(".cartao_pag_" + mostra).addClass("cartao_visivel");
 	});
 
 	/**
