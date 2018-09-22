@@ -33,10 +33,10 @@
             <li data-mostra="cadast_funcionarios" class="barra-topo__item barra-topo__item_clicavel">
                 Cadastrar funcionarios
             </li>
-            <li data-mostra="List_contatos" class="barra-topo__item barra-topo__item_clicavel">
+            <li data-mostra="list_contatos" class="barra-topo__item barra-topo__item_clicavel">
                 Listar contatos
             </li>
-            <li data-mostra="List_agendamento" class="barra-topo__item barra-topo__item_clicavel">
+            <li data-mostra="list_agendamento" class="barra-topo__item barra-topo__item_clicavel">
                 Listar agendamento
             </li>
             <li id="abre-menu" class="barra-topo__item barra-topo__item_clicavel barra-topo__item_mobile">
@@ -53,9 +53,9 @@
 
         <!-- Paginas -->
         <!-- Home -->
-        <article class="cartao cartao_pag_home cartao_visivel">
+        <article class="cartao cartao_pag_list_funcionarios cartao_visivel">
             <h2 class="cartao__titulo">Funcionarios cadastrados</h2>
-            <table class="table table-responsive">
+            <table class="table table__responsive">
                 <thead>
                     <tr>
                         <th>Nome </th>
@@ -97,10 +97,39 @@
                     </tr>
                 </tbody>
             </table>
+        </article>
 
-            <!-- Scripts -->
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-            <script src="scripts/index.js"></script>
+        <article class="cartao cartao_pag_list_agendamento">
+            <h2 class="cartao__titulo">Listagem de agendamento</h2>
+            <table class="table table__responsive">
+                <thead>
+                    <tr>
+                        <th>Especialidade</th>
+                        <th>Hora</th>
+                        <th>Data</th>
+                        <th>Contato</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Neurologia</td>
+                        <td>19:00</td>
+                        <td>19/33/20010</td>
+                        <td>xama no zapi</td>
+                    </tr>
+                    <tr>
+                            <td>Ginecologista</td>
+                            <td>20:00</td>
+                            <td>19/33/20102</td>
+                            <td>xama no zapi</td>
+                        </tr>
+                </tbody>
+            </table>
+        </article>
+
+        <!-- Scripts -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+        <script src="scripts/index.js"></script>
 </body>

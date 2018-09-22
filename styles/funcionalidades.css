@@ -360,7 +360,7 @@ table {
 @media (max-width: 767px) { 
   
   /*  Tabela responsiva*/
-  .table-responsive {
+  .table__responsive {
     display: block;
     position: relative;
     width: 100%;
