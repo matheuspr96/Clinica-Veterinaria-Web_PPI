@@ -57,7 +57,7 @@ body {
 .barra-topo__item_clicavel:active { background-color: rgba(0, 0, 0, 0.07); }
 .barra-topo__item_selecionado { color: #313436; }
 .barra-topo__item_mobile {
-	padding: calc((4rem - 16px) / 2) calc((4rem - 16px) / 2); /* Icone do FA é 16x16 acho que tem como mudar*/
+	padding: calc((4rem - 16px) / 2);
 	display: none;
 }
 .barra-topo__item .fa { display: block; }
@@ -283,9 +283,10 @@ body {
 	transition: 0.2s transform ease-in;
 }
 .menu__fechar {
-	float: right;
+	position: absolute;
+	top: 1rem;
+	right: 1rem;
 	cursor: pointer;
-	margin: 1rem;
 }
 .menu__lista {
 	position: relative;
