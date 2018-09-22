@@ -118,13 +118,21 @@
 				</select><br><br>
 				
 				<label class="form__label">Médico</label><br>
-				<button class="botao">Selecionar</button><br><br>
+				<select class="form__select" name="agendamento__medico" id="agendamento__medico">
+					<option value="alice">Alice</option>
+					<option value="bob">Bob</option>
+					<option value="clarice">Claríce</option>
+				</select><br><br>
 
 				<label for="consulta" class="form__label">Data consulta</label><br>
 				<input type="date" name="agendamento__consulta" id="agendamento__consulta" class="form__text-field"><br><br>
 
 				<label class="form__label">Horário</label><br>
-				<input type="time" name="agendamento__horario" id="agendamento__horario" class="form__text-field"><br><br>
+				<select class="form__select" name="agendamento__horario" id="agendamento__horario">
+					<option value="8am">08:00</option>
+					<option value="2pm">14:00</option>
+					<option value="7pm">19:00</option>
+				</select><br><br>
 
 				<label for="agendamento__nome" class="form__label">Nome</label><br>
 				<input type="text" name="agendamento__nome" id="agendamento__nome" class="form__text-field"><br><br>
