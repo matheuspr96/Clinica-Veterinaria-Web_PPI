@@ -54,7 +54,7 @@ $(() => {
 	/**
 	 * Botao de login
 	 */
-	$("#botao-login").click(e => $("#login-dialog").toggleClass("dialog_escondido"));
+	$(".mostra-login").click(e => $("#login-dialog").toggleClass("dialog_escondido"));
 
 	/**
 	 * Dialogs
