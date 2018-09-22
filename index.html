@@ -38,6 +38,9 @@
 			<li data-mostra="agendamento" class="barra-topo__item barra-topo__item_clicavel">
 				Agendamento
 			</li>
+			<li id="abre-menu" class="barra-topo__item barra-topo__item_clicavel barra-topo__item_mobile">
+				<span class="fa fa-bars"></span>
+			</li>
 		</ul>
 	</nav>
 
@@ -122,17 +125,17 @@
 			<h2 class="cartao__titulo">Agendamento</h2>
 			<form action="#" method="POST" class="form" onsubmit="return false;">
 				<label class="form__label">Especialidade</label><br>
-				<select class="form__text-field" name="agendamento__especialidade" id="agendamento__especialidade">
+				<select class="form__select" name="agendamento__especialidade" id="agendamento__especialidade">
 					<option value="oftamologia">Oftamologia</option>
 					<option value="neurologia">Neurologia</option>
 					<option value="circurgia">Circurgia</option>
 				</select><br><br>
 				
 				<label class="form__label">Médico</label><br>
-				<button class="button">Selecionar</button><br><br>
+				<button class="botao">Selecionar</button><br><br>
 
 				<label for="consulta" class="form__label">Data consulta</label><br>
-				<input type="date" name="agendamento__consulta" id="agendamento__consulta"><br><br>
+				<input type="date" name="agendamento__consulta" id="agendamento__consulta" class="form__text-field"><br><br>
 
 				<label class="form__label">Horário</label><br>
 				<input type="time" name="agendamento__horario" id="agendamento__horario" class="form__text-field"><br><br>
@@ -164,6 +167,19 @@
 
 				<button class="form__botao botao">Entrar</button>
 			</form>
+		</div>
+	</aside>
+
+	<aside class="menu menu_escondido">
+		<div class="menu__fundo"></div>
+		<div class="menu__superficie">
+			<span class="menu__fechar fa fa-close"></span>
+			<ul class="menu__lista">
+				<li data-mostra="home" class="menu__item">Home</li>
+				<li data-mostra="galeria" class="menu__item">Galeria</li>
+				<li data-mostra="contato" class="menu__item">Contato</li>
+				<li data-mostra="agendamento" class="menu__item">Agendamento</li>
+			</ul>
 		</div>
 	</aside>
 

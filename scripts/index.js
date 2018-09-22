@@ -61,6 +61,11 @@ $(() => {
 	$(".dialog__fundo").click(e => $(e.target.parentNode).addClass("dialog_escondido"));
 
 	/**
+	 * Menu
+	 */
+    $("#abre-menu, .menu__fechar, .menu__fundo, .menu__item").click(e => $(".menu").toggleClass("menu_escondido"));
+
+	/**
 	 * Footer
 	 */
 	$(".footer").text(`\u00A9 ${(new Date()).getFullYear()} Zika-PET`);

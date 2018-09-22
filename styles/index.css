@@ -33,6 +33,7 @@ body {
 .barra-topo__item {
 	display: inline-block;
 	height: 4rem;
+	min-width: 4rem;
 	line-height: 4rem;
 	padding: 0 1rem;
 }
@@ -50,20 +51,23 @@ body {
 	float: right;
 	padding: calc((4rem - 2.25rem) / 2) 1rem;
 }
-.barra-topo__botao {
-	display: block;
+.barra-topo__botao { display: block; }
+.barra-topo:hover .barra-topo__item { color: #313436; }
+.barra-topo__item_clicavel:hover { background-color: rgba(0, 0, 0, 0.03); }
+.barra-topo__item_clicavel:active { background-color: rgba(0, 0, 0, 0.07); }
+.barra-topo__item_selecionado { color: #313436; }
+.barra-topo__item_mobile {
+	padding: calc((4rem - 16px) / 2) calc((4rem - 16px) / 2); /* Icone do FA é 16x16 acho que tem como mudar*/
+	display: none;
 }
-.barra-topo:hover .barra-topo__item {
-	color: #313436;
-}
-.barra-topo__item_clicavel:hover {
-	background-color: rgba(0, 0, 0, 0.03);
-}
-.barra-topo__item_clicavel:active {
-	background-color: rgba(0, 0, 0, 0.07);
-}
-.barra-topo__item_selecionado {
-	color: #313436;
+.barra-topo__item .fa { display: block; }
+@media screen and (max-width: 700px) {
+	.barra-topo__item_mobile { display: inline-block; }
+
+	.barra-topo__item_clicavel:not(.barra-topo__item_mobile),
+	.barra-topo__item_botao:not(.barra-topo__item_mobile) {
+		display: none;
+	}
 }
 
 .pagina {
@@ -234,6 +238,70 @@ body {
 	text-align: center;
 	background-color: #222;
 	color: #FFF;
+}
+
+.menu {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	transition: 0s visibility linear 0s;
+}
+.menu_escondido {
+	visibility: hidden;
+	transition: 0s   visibility linear 0.1s;
+}
+.menu__fundo {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 1;
+	background-color: rgba(0, 0, 0, 0.4);
+	transition: 0.2s opacity ease-in-out 0s;
+}
+.menu_escondido .menu__fundo {
+	opacity: 0;
+	transition: 0.1s opacity ease-in-out 0s;
+}
+.menu__superficie {
+	position: absolute;
+	top: 4rem;
+	right: 0;
+	height: calc(100% - 4rem);
+	width: 90%;
+	max-width: 12rem;
+	background-color: #FFF;
+	box-shadow: 0 10px 24px rgba(0, 0, 0, 0.4);
+	transform: translate(0, 0);
+	transition: 0.2s transform ease-out;
+}
+.menu_escondido .menu__superficie {
+	transform: translate(100%, 0);
+	transition: 0.2s transform ease-in;
+}
+.menu__fechar {
+	float: right;
+	cursor: pointer;
+	margin: 1rem;
+}
+.menu__lista {
+	position: relative;
+	padding: 1.5rem;
+	margin-top: 1rem;			
+}
+.menu__item {
+	color: rgba(49, 52, 54, 1);
+	cursor: pointer;
+	transition: 0.05s color ease-in-out;
+}
+.menu__lista:hover .menu__item {
+	color: rgba(49, 52, 54, 0.6);
+}
+.menu__item:hover {
+	color: rgba(49, 52, 54, 1) !important; /* TODO tirar important */
 }
 
 ::-webkit-scrollbar {
