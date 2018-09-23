@@ -50,7 +50,11 @@ body {
 .barra-topo__botao { display: block; }
 .barra-topo:hover .barra-topo__item { color: #313436; }
 .barra-topo__item_clicavel:hover { background-color: rgba(0, 0, 0, 0.03); }
-.barra-topo__item_clicavel:active { background-color: rgba(0, 0, 0, 0.07); }
+.barra-topo__item_clicavel:active { 
+	background-color: rgba(0, 0, 0, 0.07);
+	box-shadow: 0 5px #666;
+	transform: translateY(2px);
+ }
 .barra-topo__item_selecionado { color: #313436; }
 .barra-topo__item_mobile {
 	padding: calc((4rem - 16px) / 2);
@@ -77,11 +81,12 @@ body {
 
 .header {
 	position: relative;
+	display: block;
 	top: 0;
 	left: 0;
 	width: 100%;
 	padding: 6rem 0;
-	background-color: #4CAF50;
+	background-image: url(../images/clinica-veterinaria-preco.jpg);
 }
 .header__titulo {
 	font-size: 4rem;
@@ -308,6 +313,11 @@ body {
 }
 .menu__item:hover {
 	color: rgba(49, 52, 54, 1) !important;
+}
+.img_context {
+	height: 8rem;
+	width: 8rem;
+	float: right;
 }
 
 ::-webkit-scrollbar {

@@ -1,5 +1,4 @@
 $(() => {
-	var isGaleriaCarregada = false; // Guarda se as imagens da galeria já foram carregadas ou não (para exibir a animação)
 
 	/**
 	 * Menu navbar
@@ -16,7 +15,12 @@ $(() => {
 		$(".cartao_pag_" + mostra).addClass("cartao_visivel");
     });
     
-    $(".mostra-login").click(e => $("#login-dialog").toggleClass("dialog_escondido"));
+	$(".mostra-login").click(e => $("#login-dialog").toggleClass("dialog_escondido"));
+	
+	$("#botao-login").click(function(){
+		alert("pena");
+		window.location = "/funcionarios.html";
+	});
 
 	/**
 	 * Dialogs
