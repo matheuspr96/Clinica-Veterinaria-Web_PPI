@@ -306,7 +306,7 @@ body {
 }
 .menu__lista:hover .menu__item {
 	color: rgba(49, 52, 54, 0.6);
-}
+}	
 .menu__item:hover {
 	color: rgba(49, 52, 54, 1) !important;
 }

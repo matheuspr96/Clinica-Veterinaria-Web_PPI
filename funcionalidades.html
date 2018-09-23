@@ -130,6 +130,100 @@
 
         <article class="cartao cartao_pag_cadast_funcionarios ">
             <h2 class="cartao__titulo">Cadastro de funcionarios</h2>
+            <h2 class="cartao__titulo">Dados Pessoais</h2>
+            <form action="#" method="POST" class="form" onsubmit="return false;">
+                <label for="funcionario__nome" class="form__label">Nome</label><br>
+                <input type="text" name="contato__nome" id="funcionario__nome" class="form__text-field"><br><br>
+
+
+
+                <label for="funcionario__data" class="form__label">Data de Nascimento</label><br>
+                <input type="date" name="funcionario__data" id="funcionario__data" class="form__text-field"><br><br>
+
+
+
+                <label class="form__label">Sexo</label><br>
+                <input type="radio" name="funcionario__sexo" id="funcionario__sexo">Masculino    
+                <input type="radio" name="funcionario__sexo" id="funcionario__sexo">Feminino <br>
+
+
+                <label class="form__label">Estado Civil</label><br>
+                <input type="checkbox" name="estado__civil" id="m_solteiro" class="form__checkbox">
+                <label for="m_solteiro" class="form__cb-label">Solteiro</label><br>
+                <input type="checkbox" name="estado__civil" id="m_casado" class="form__checkbox">
+                <label for="m_sugestao" class="form__cb-label">Casado</label><br>
+
+                <label for="esp__medica">Especialidade Medica</label>
+                <select name="esp__medica" id="esp_medica">
+                    <option value="médico">Médico</option>
+                    <option value="enfermeiro">Enfermeiro</option>
+                    <option value="secretario">Secretário</option>
+                    <option value="médico">Outro</option>
+
+                </select>
+
+                <h2 class="cartao__titulo">Documentos</h2>
+                <label class="form__cpf">CPF</label><br>
+                <input type="text" name="" id="form__cpf" class="form__text-field"><br><br>
+
+                <label class="form__rg">RG</label><br>
+                <input type="text" name="" id="form__rg" class="form__text-field"><br><br>
+
+                <label class="form__tituloeeleitor">Titulo Eleitor</label><br>
+                <input type="text" name="" id="form__tituloeeleitor" class="form__text-field"><br><br>
+
+
+                <h2 class="cartao__titulo">Endereço</h2>
+
+                <table class="table table__responsive">
+
+                    <tr>
+                        <td>
+                            <label for="form__cep">CEP</label><br>
+                            <input type="text" name="form__cep" id="form_cep" class="form__text-field"><br><br>
+                        </td>
+                        <td>
+                            <label for="tipo__logradouro">Tipo do Logradouro</label><br>
+                            <select name="" id="">
+                                <option value="rua">Rua</option>
+                                <option value="avenida">Avenida</option>
+                                <option value="praca">Praça</option>
+                            </select>
+                        </td>
+                        <td>
+                            <label for="logradouro">Logradouro</label><br>
+                            <input type="text" name="logradouro" id="m_logradouro" class="form__text-field">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="numero">Numero</label><br>
+                            <input type="text" name="numero" id="m_numero" class="form__text-field">
+                        </td>
+                        <td>
+                            <label for="complemento">Complemento</label><br>
+                            <input type="text" name="complemento" id="m_complemento" class="form__text-field">
+                        </td>
+                        <td>
+                            <label for="logradouro">Bairro</label><br>
+                            <input type="text" name="bairro" id="m_bairro" class="form__text-field">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="cidade">Cidade</label><br>
+                            <input type="text" name="cidade" id="m_cidade" class="form__text-field">
+                        </td>
+                        <td>
+                            <label for="estado">Estado</label><br>
+                            <input type="text" name="estado" id="m_estado" class="form__text-field">
+                        </td>
+                    </tr>
+
+                </table>
+            </form>
+
+            <button class="form__botao botao">Enviar</button>
         </article>
 
         <article class="cartao cartao_pag_list_contatos ">
@@ -165,13 +259,13 @@
                 </tbody>
             </table>
         </article>
-       
+
         <footer class="footer"></footer>
     </main>
 
-        <!-- Scripts -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-        <script src="scripts/index.js"></script>
+    <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src="scripts/index.js"></script>
 </body>
