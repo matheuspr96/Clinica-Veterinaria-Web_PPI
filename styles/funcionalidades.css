@@ -271,6 +271,7 @@ body {
 	opacity: 0;
 	transition: 0.1s opacity ease-in-out 0s;
 }
+
 .menu__superficie {
 	position: absolute;
 	top: 4rem;
@@ -356,7 +357,7 @@ table {
   }
 
 
-/* Small Sizes  referencia https://www.felipefialho.com/blog/2013/tutorial-tabela-responsiva  */
+/* Small Sizes  referencia https://www.felipefialho.com/blog/2013/tutorial-tabela-responsiva */
 @media (max-width: 767px) { 
   
   /*  Tabela responsiva*/
@@ -366,23 +367,23 @@ table {
     width: 100%;
   }
 
-  .table-responsive thead,
-  .table-responsive tbody,
-  .table-responsive th,
-  .table-responsive td,
-  .table-responsive tr {
+  .table__responsive thead,
+  .table__responsive tbody,
+  .table__responsive th,
+  .table__responsive td,
+  .table__responsive tr {
     display: block;
   }
-  .table-responsive td,
-  .table-responsive th {
+  .table__responsive td,
+  .table__responsive th {
     height: 35px;
   }
 
-  .table-responsive thead {
+  .table__responsive thead {
     float: left;
   }
 
-  .table-responsive tbody {
+  .table__responsive tbody {
     width: auto;
     position: relative;
     overflow-x: auto;
@@ -390,7 +391,7 @@ table {
     white-space: nowrap;
   }
 
-  .table-responsive tbody tr {
+  .table__responsive tbody tr {
     display: inline-block;
   }
 
