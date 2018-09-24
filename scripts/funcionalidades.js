@@ -17,9 +17,8 @@ $(() => {
     
 	$(".mostra-login").click(e => $("#login-dialog").toggleClass("dialog_escondido"));
 	
-	$("#botao-login").click(function(){
-		alert("pena");
-		window.location = "/funcionarios.html";
+	$("#botao-login").click(e =>{
+		window.location = "./index.html";
 	});
 
 	/**

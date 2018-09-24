@@ -52,9 +52,14 @@ $(() => {
 	});
 
 	/**
-	 * Botao de login
+	 * Botao de login que lança o MODAL
 	 */
 	$(".mostra-login").click(e => $("#login-dialog").toggleClass("dialog_escondido"));
+
+	// Botão de entrar
+	$("#botao-login").click(e =>{
+		window.location = "./funcionalidades.html";
+	});
 
 	/**
 	 * Dialogs
