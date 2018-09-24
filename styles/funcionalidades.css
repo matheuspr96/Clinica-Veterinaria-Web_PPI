@@ -233,6 +233,7 @@ body {
 	width: 50%;
 	float: left;
 	margin: 0.5rem;
+	opacity:65;
 }
 @media screen and (max-width: 480px) {
 	.logo-home { width: 100%; }
@@ -394,11 +395,20 @@ table {
   .table__responsive tbody tr {
     display: inline-block;
   }
-
   
   .table td:last-child {
-     border-right: #999999 solid 1px;
+	 border-right: #999999 solid 1px;
   }
+}
+
+.formulario td{
+	padding: 10px;
+}
+
+.formulario {
+	overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
 }
 
 ::-webkit-scrollbar {
