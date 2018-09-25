@@ -57,7 +57,7 @@ $(() => {
 	$(".mostra-login").click(e => $("#login-dialog").toggleClass("dialog_escondido"));
 
 	// Botão de entrar
-	$("#botao-login").click(e =>{
+	$("#botao-login").click(e => {
 		window.location = "./funcionalidades.html";
 	});
 
