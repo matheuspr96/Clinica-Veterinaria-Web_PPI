@@ -23,7 +23,8 @@
     <!-- Barra do topo -->
     <nav class="barra-topo">
         <ul class="barra-topo__lista">
-            <li class="barra-topo__item barra-topo__item_nome">Zika-PET</li>
+            <li class="barra-topo__item barra-topo__item_nome">Zika-PET </li>
+            
             <li class="barra-topo__item barra-topo__item_botao">
                 <button id="botao-login" class="barra-topo__botao botao">Voltar</button>
             </li>
@@ -129,7 +130,7 @@
         </article>
 
         <article class="cartao cartao_pag_cadast_funcionarios ">
-            <h2 class="cartao__titulo"><strong>Cadastro de funcionarios</strong></h2><br><br>
+            <h2 class="cartao__titulo">Cadastro de funcionarios</h2><br><br>
             <form action="#" method="POST" class="form" onsubmit="return false;">
                 <h2 class="cartao__titulo">Dados Pessoais</h2>
                 <label for="funcionario__nome" class="form__label">Nome</label><br>
@@ -264,6 +265,20 @@
 
         <footer class="footer"></footer>
     </main>
+
+    <aside class="menu menu_escondido">
+		<div class="menu__fundo"></div>
+		<div class="menu__superficie">
+			<ul class="menu__lista">
+				<li data-mostra="list_funcionarios" class="menu__item">Listar Funcionarios</li>
+				<li data-mostra="cadast_funcionarios" class="menu__item">Cadastrar Funcionarios</li>
+				<li data-mostra="Listar contatos" class="menu__item">Listar Contatos</li>
+				<li data-mostra="list_agendamento" class="menu__item">Listar Agendamento</li>
+				<li class="menu__item mostra-login"><button style="width: 100%;">Voltar</button></li>
+			</ul>
+			<span class="menu__fechar fa fa-close"></span>
+		</div>s
+	</aside>
 
     <!-- Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
