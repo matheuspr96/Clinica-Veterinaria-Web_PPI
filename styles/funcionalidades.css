@@ -13,9 +13,6 @@ body {
 	color: #313436;
 }
 
-.texto-grande { font-size: 125%; }
-.texto-maior { font-size: 175%; }
-
 .barra-topo {
 	position: fixed;
 	top: 0;
@@ -122,20 +119,6 @@ body {
 	margin-bottom: 0.25rem;
 }
 
-.cartao_pag_galeria { text-align: center; }
-
-.imagem {
-	width: 10rem;
-	height: 10rem;
-	margin: 0.5rem;
-	border-radius: 4px;
-	transition: 0.2s opacity ease-in-out;
-	border: 2px solid transparent;
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-	opacity: 0;
-}
-.imagem_visivel { opacity: 1; }
-
 .botao {
 	border: none;
 	outline: none;
@@ -186,57 +169,6 @@ body {
 .form__botao {
 	float: right;
 	margin-top: -1rem;
-}
-
-.dialog {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	transition: 0s   visibility linear 0s,
-				0.2s opacity ease-in-out 0s;
-}
-.dialog_escondido {
-	visibility: hidden;
-	opacity: 0;
-	transition: 0s   visibility linear 0.1s,
-				0.1s opacity ease-in-out 0s;
-}
-.dialog__fundo {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-color: rgba(0, 0, 0, 0.4);
-}
-.dialog__cartao {
-	display: block;
-	position: absolute;
-	opacity: 1;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%) scale(1);
-	width: calc(100% - 2rem);
-	max-width: 32rem;
-	box-shadow: 0 10px 24px rgba(0, 0, 0, 0.4);
-	z-index: 15;
-	transition: 0.2s transform ease-in-out 0s;
-}
-.dialog_escondido .dialog__cartao {
-	transform: translate(-50%, -50%) scale(0);
-	transition: 0s transform linear 0.1s;
-}
-
-.logo-home {
-	width: 50%;
-	float: left;
-	margin: 0.5rem;
-	opacity:65;
-}
-@media screen and (max-width: 480px) {
-	.logo-home { width: 100%; }
 }
 
 .footer {
