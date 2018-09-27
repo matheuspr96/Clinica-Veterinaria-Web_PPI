@@ -82,8 +82,9 @@ body {
 	left: 0;
 	width: 100%;
 	padding: 6rem 0;
-	background-image: url("../images/clinica-veterinaria-preco.jpg");
-	opacity: 0.40;
+	background: linear-gradient(rgba(76, 175, 80, 0.7), rgba(76, 175, 80, 0.7)),
+	            url("../images/clinica-veterinaria-preco.jpg");
+	background-position: top center;
 }
 .header__titulo {
 	font-size: 4rem;
