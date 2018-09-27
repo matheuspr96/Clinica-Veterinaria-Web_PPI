@@ -319,6 +319,9 @@ body {
 	margin-bottom: -3rem;
 	margin-left: calc(100% - 9rem);
 }
+@media screen and (max-width: 450px) {
+	.imagem-footer { display: none; }
+}
 
 ::-webkit-scrollbar {
 	background-color: rgba(0, 0, 0, 0.04);
