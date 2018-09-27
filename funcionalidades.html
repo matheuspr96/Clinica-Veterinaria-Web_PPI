@@ -389,77 +389,117 @@
             </table>
         </article>
 
-        <article class="cartao cartao_pag_cadast_funcionarios ">
+        <article class="cartao cartao_pag_cadast_funcionarios">
             <h2 class="cartao__titulo">Cadastro de funcionarios</h2><br><br>
             <form action="#" method="POST" class="form" onsubmit="return false;">
                 <h3 class="cartao__subtitulo">Dados Pessoais</h3>
 
-                <label for="funcionario__nome" class="form__label">Nome</label><br>
-                <input type="text" name="funcionario__nome" id="funcionario__nome" class="form__text-field"><br><br>
+                <div class="row">
+                    <div class="col-8">
+                        <label for="funcionario__nome" class="form__label">Nome</label><br>
+                        <input type="text" name="funcionario__nome" id="funcionario__nome" class="form__text-field">
+                    </div>
 
-                <label for="funcionario__data" class="form__label">Data de Nascimento</label><br>
-                <input type="date" name="funcionario__data" id="funcionario__data" class="form__text-field"><br><br>
+                    <div class="col-4">
+                        <label for="funcionario__data" class="form__label">Data de Nascimento</label><br>
+                        <input type="date" name="funcionario__data" id="funcionario__data" class="form__text-field">
+                    </div>
+                </div>
 
-                <label class="form__label">Sexo</label><br>
-                <input type="radio" name="funcionario__sexo" value="m" id="funcionario__sexo_m">
-                <label for="funcionario__sexo_m" class="form__cb-label">Masculino</label><br>
-                <input type="radio" name="funcionario__sexo" value="f" id="funcionario__sexo_f">
-                <label for="funcionario__sexo_f" class="form__cb-label">Feminino</label><br><br>
+                <div class="row">
+                    <div class="col-4">
+                        <label class="form__label">Sexo</label><br>
+                        <input type="radio" name="funcionario__sexo" value="m" class="form__checkbox" id="funcionario__sexo_m">
+                        <label for="funcionario__sexo_m" class="form__cb-label">Masculino</label><br>
+                        <input type="radio" name="funcionario__sexo" value="f" class="form__checkbox" id="funcionario__sexo_f">
+                        <label for="funcionario__sexo_f" class="form__cb-label">Feminino</label>
+                    </div>
 
-                <label class="form__label">Estado Civil</label><br>
-                <input type="checkbox" name="estado__civil" id="m_solteiro" class="form__checkbox">
-                <label for="m_solteiro" class="form__cb-label">Solteiro</label><br>
-                <input type="checkbox" name="estado__civil" id="m_casado" class="form__checkbox">
-                <label for="m_casado" class="form__cb-label">Casado</label><br><br>
+                    <div class="col-4">
+                        <label class="form__label">Estado Civil</label><br>
+                        <input type="checkbox" name="estado__civil" id="m_solteiro" class="form__checkbox">
+                        <label for="m_solteiro" class="form__cb-label">Solteiro</label><br>
+                        <input type="checkbox" name="estado__civil" id="m_casado" class="form__checkbox">
+                        <label for="m_casado" class="form__cb-label">Casado</label>
+                    </div>
 
-                <label for="esp__medica">Especialidade Medica</label><br>
-                <select name="esp__medica" id="esp__medica" class="form__select">
-                    <option value="médico">Médico</option>
-                    <option value="enfermeiro">Enfermeiro</option>
-                    <option value="secretario">Secretário</option>
-                    <option value="médico">Outro</option>
-                </select><br><br>
+                    <div class="col-4">
+                        <label for="esp__medica">Especialidade Medica</label><br>
+                        <select name="esp__medica" id="esp__medica" class="form__select">
+                            <option value="médico">Médico</option>
+                            <option value="enfermeiro">Enfermeiro</option>
+                            <option value="secretario">Secretário</option>
+                            <option value="médico">Outro</option>
+                        </select>
+                    </div>
+                </div>
 
                 <h3 class="cartao__subtitulo">Documentos</h3>
-                <label class="form__cpf">CPF</label><br>
-                <input type="text" name="form__cpf" id="form__cpf" class="form__text-field"><br><br>
-
-                <label class="form__rg">RG</label><br>
-                <input type="text" name="form__rg" id="form__rg" class="form__text-field"><br><br>
-
-                <label class="form__titulo-eeleitor">Titulo Eleitor</label><br>
-                <input type="text" name="form__titulo-eeleitor" id="form__tituloe-eleitor" class="form__text-field"><br><br>
-
+                <div class="row">
+                    <div class="col-4">
+                        <label class="form__cpf">CPF</label><br>
+                        <input type="text" name="form__cpf" id="form__cpf" class="form__text-field">
+                    </div>
+                    <div class="col-4">
+                        <label class="form__rg">RG</label><br>
+                        <input type="text" name="form__rg" id="form__rg" class="form__text-field">
+                    </div>
+                    <div class="col-4">
+                        <label class="form__titulo-eleitor">Titulo Eleitor</label><br>
+                        <input type="text" name="form__titulo-eleitor" id="form__titulo-eleitor" class="form__text-field">
+                    </div>
+                </div>
 
                 <h2 class="cartao__titulo">Endereço</h2>
-                <label for="form__cep">CEP</label><br>
-                <input type="text" name="form__cep" id="form__cep" class="form__text-field"><br><br>
+                <div class="row">
+                    <div class="col-4">
+                        <label for="form__cep">CEP</label><br>
+                        <input type="text" name="form__cep" id="form__cep" class="form__text-field">
+                    </div>
+                    <div class="col-8"></div>
+                </div>
 
-                <label for="tipo__logradouro">Tipo do Logradouro</label><br>
-                <select name="tipo__logradouro" id="tipo__logradouro" class="form__select">
-                    <option value="rua">Rua</option>
-                    <option value="avenida">Avenida</option>
-                    <option value="praca">Praça</option>
-                </select><br><br>
+                <div class="row">
+                    <div class="col-3">
+                        <label for="tipo__logradouro">Tipo do Logradouro</label><br>
+                        <select name="tipo__logradouro" id="tipo__logradouro" class="form__select">
+                            <option value="rua">Rua</option>
+                            <option value="avenida">Avenida</option>
+                            <option value="praca">Praça</option>
+                        </select>
+                    </div>
+                    <div class="col-6">
+                        <label for="logradouro">Logradouro</label><br>
+                        <input type="text" name="logradouro" id="logradouro" class="form__text-field">
+                    </div>
+                    <div class="col-3">
+                        <label for="numero">Numero</label><br>
+                        <input type="text" name="numero" id="numero" class="form__text-field">
+                    </div>
+                </div>
 
-                <label for="logradouro">Logradouro</label><br>
-                <input type="text" name="logradouro" id="logradouro" class="form__text-field"><br><br>
+                <div class="row">
+                    <div class="col-12">
+                        <label for="complemento">Complemento</label><br>
+                        <input type="text" name="complemento" id="complemento" class="form__text-field">
+                    </div>
+                </div>
 
-                <label for="numero">Numero</label><br>
-                <input type="text" name="numero" id="numero" class="form__text-field"><br><br>
-
-                <label for="complemento">Complemento</label><br>
-                <input type="text" name="complemento" id="complemento" class="form__text-field"><br><br>
-
-                <label for="logradouro">Bairro</label><br>
-                <input type="text" name="bairro" id="bairro" class="form__text-field"><br><br>
-
-                <label for="cidade">Cidade</label><br>
-                <input type="text" name="cidade" id="cidade" class="form__text-field"><br><br>
-
-                <label for="estado">Estado</label><br>
-                <input type="text" name="estado" id="estado" class="form__text-field"><br><br>
-
+                <div class="row">
+                    <div class="col-4">
+                        <label for="logradouro">Bairro</label><br>
+                        <input type="text" name="bairro" id="bairro" class="form__text-field">
+                    </div>
+                    <div class="col-6">
+                        <label for="cidade">Cidade</label><br>
+                        <input type="text" name="cidade" id="cidade" class="form__text-field">
+                    </div>
+                    <div class="col-2">
+                        <label for="estado">Estado</label><br>
+                        <input type="text" name="estado" id="estado" class="form__text-field">
+                    </div>
+                </div>
+                <br><br>
                 <button class="form__botao botao">Enviar</button>
             </form>
         </article>

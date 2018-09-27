@@ -140,7 +140,7 @@ body {
 }
 
 .form__text-field {
-	max-width: 100%;
+	width: 100%;
 	margin: 0.5rem 0;
 	padding: 0.5rem;
 	border-radius: 4px;
@@ -169,6 +169,31 @@ body {
 .form__botao {
 	float: right;
 	margin-top: -1rem;
+}
+
+.row {
+	position: relative;
+	display: block;
+	margin-bottom: 1rem;
+}
+.col-2, .col-3, .col-4, .col-6, .col-8, .col-12 {
+	display: inline-block;
+	vertical-align: top;
+	margin: calc(0.5rem - 2px); /* Tirando 1px/2px adicionado por ser inline-block com quebra de linha entre eles */
+}
+.col-2  { width: calc(2  * 100% / 12 - 1rem); }
+.col-3  { width: calc(3  * 100% / 12 - 1rem); }
+.col-4  { width: calc(4  * 100% / 12 - 1rem); }
+.col-6  { width: calc(6  * 100% / 12 - 1rem); }
+.col-8  { width: calc(8  * 100% / 12 - 1rem); }
+.col-12 { width: calc(12 * 100% / 12 - 1rem); }
+
+@media screen and (max-width: 600px) {
+	.col-2, .col-3, .col-4, .col-6, .col-8, .col-12 {
+		display: block;
+		width: 100%;
+		margin: 1rem 0;
+	}
 }
 
 .footer {
