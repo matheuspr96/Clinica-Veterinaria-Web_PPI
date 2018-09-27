@@ -246,91 +246,85 @@ body {
 
 
 table {
-    max-width: 100%;
-    background-color: transparent;
-    border-collapse: collapse;
-    border-spacing: 0;
-    font-family: arial;
-  }
+	max-width: 100%;
+	background-color: transparent;
+	border-collapse: collapse;
+	border-spacing: 0;
+}
 
-  .table {
-    border-bottom: #999999 solid 1px;
-    width: 100%;
-    margin-bottom: 20px;
-  }
+.table {
+	border-bottom: 1px sloid #999999;
+	width: 100%;
+	margin-bottom: 1.25rem;
+}
 
-  .table th,
-  .table td {
-    font-size: 12px;
-    padding: 8px;
-    line-height: 20px;
-    text-align: left;
+.table th,
+.table td {
+	padding: 0.5rem;
+	line-height: 1.25rem;
+	text-align: left;
 	vertical-align: middle;
-	
-}
-  
-  .table td:last-child {
-     border-right: 0;
-  }
-
-  .table thead th {
-    font-weight: normal;
-    background-color: #4CAF50;
-    color: #fff;
-	font-size: 15px;
-	border-bottom: 1px solid #ffffff;
 }
 
-  
+.table td:last-child {
+	border-right: 0;
+}
 
-  .table tbody > tr:nth-child(odd) > td,
-  .table tbody > tr:nth-child(odd) > th {
-	background-color: #eaf3e9;
-	border-bottom: 1px solid #ffffff;
-  }
+.table thead th {
+	font-weight: 400;
+	background-color: #4CAF50;
+	color: #FFF;
+	font-size: 1rem;
+	border-bottom: 1px solid #FFF;
+}
 
 
-/* Small Sizes  referencia https://www.felipefialho.com/blog/2013/tutorial-tabela-responsiva */
-@media (max-width: 767px) { 
-  
-  /*  Tabela responsiva*/
-  .table__responsive {
-    display: block;
-    position: relative;
-    width: 100%;
-  }
 
-  .table__responsive thead,
-  .table__responsive tbody,
-  .table__responsive th,
-  .table__responsive td,
-  .table__responsive tr {
-    display: block;
-  }
-  .table__responsive td,
-  .table__responsive th {
-    height: 35px;
-  }
+.table tbody > tr:nth-child(odd) > td,
+.table tbody > tr:nth-child(odd) > th {
+	background-color: #EAF3E9;
+	border-bottom: 1px solid #FFF;
+}
 
-  .table__responsive thead {
-    float: left;
-  }
+@media (max-width: 767px) {
+	.table__responsive {
+		display: block;
+		position: relative;
+		width: 100%;
+	}
 
-  .table__responsive tbody {
-    width: auto;
-    position: relative;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    white-space: nowrap;
-  }
+	.table__responsive thead,
+	.table__responsive tbody,
+	.table__responsive th,
+	.table__responsive td,
+	.table__responsive tr {
+		display: block;
+	}
+	.table__responsive td,
+	.table__responsive th {
+		height: 2.125rem;
+		line-height: 1rem;
+	}
 
-  .table__responsive tbody tr {
-    display: inline-block;
-  }
-  
-  .table td:last-child {
-	 border-right: #999999 solid 1px;
-  }
+	.table__responsive thead {
+		float: left;
+	}
+
+	.table__responsive tbody {
+		width: auto;
+		position: relative;
+		overflow-x: auto;
+		white-space: nowrap;
+		-webkit-overflow-scrolling: touch;
+	}
+
+	.table__responsive tbody tr {
+		display: inline-block;
+	}
+
+	.table td:last-child {
+		border-right: 1px solid #999999;
+	}
 }
 
 .formulario td{
