@@ -57,7 +57,7 @@ body {
 	display: none;
 }
 .barra-topo__item .fa { display: block; }
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 790px) {
 	.barra-topo__item_mobile { display: inline-block; }
 
 	.barra-topo__item_clicavel:not(.barra-topo__item_mobile),
@@ -279,7 +279,7 @@ body {
 	right: 0;
 	height: calc(100% - 4rem);
 	width: 90%;
-	max-width: 12rem;
+	max-width: 14rem;
 	background-color: #FFF;
 	box-shadow: 0 10px 24px rgba(0, 0, 0, 0.4);
 	transform: translate(0, 0);
