@@ -11,6 +11,7 @@ function filtraEntrada($dado)
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") 
+<<<<<<< HEAD
 	{
 		$msgErro = "";
 
@@ -21,6 +22,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     	$email = filtraEntrada($_POST["contato__email"]);
     	$motivo = filtraEntrada($_POST["motivo"]);
     	$mensagem = filtraEntrada($_POST["contato__mensagem"]);
+=======
+{
+	$msgErro = "";
+
+    // Define e inicializa as variáveis
+    $nome, $email, $motivo, $mensagem = "";
+
+    $nome  = filtraEntrada($_POST["contato__nome"]);
+    $email = filtraEntrada($_POST["contato__email"]);
+    $motivo = filtraEntrada($_POST["motivo"]);
+    $mensagem = filtraEntrada($_POST["contato__mensagem"]);
+>>>>>>> a34ad31faedd110db9a61378a0f09b7d371feba0
     
     try
 	{    
@@ -34,7 +47,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 
 		if (! $conn->query($sql))
 		  throw new Exception("Falha na inserção dos dados: " . $conn->error);
+<<<<<<< HEAD
 
+=======
+>>>>>>> a34ad31faedd110db9a61378a0f09b7d371feba0
 	}
 	catch (Exception $e)
 	{
@@ -43,3 +59,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 }
   
 ?>
+<<<<<<< HEAD
+=======
+
+    
+
+
+?>
+>>>>>>> a34ad31faedd110db9a61378a0f09b7d371feba0
