@@ -13,6 +13,9 @@ body {
 	color: #313436;
 }
 
+.texto-grande { font-size: 125%; }
+.texto-maior { font-size: 175%; }
+
 .barra-topo {
 	position: fixed;
 	top: 0;
@@ -54,7 +57,7 @@ body {
 	display: none;
 }
 .barra-topo__item .fa { display: block; }
-@media screen and (max-width: 790px) {
+@media screen and (max-width: 935px) {
 	.barra-topo__item_mobile { display: inline-block; }
 
 	.barra-topo__item_clicavel:not(.barra-topo__item_mobile),
@@ -85,7 +88,7 @@ body {
 	font-family: Montserrat, Roboto, Arial, sans-serif;
 	font-weight: 400;
 	text-align: center;
-	color: #FFF;
+	color: rgb(122, 93, 93);
 }
 
 .cartao {
@@ -119,6 +122,20 @@ body {
 	margin-bottom: 0.25rem;
 }
 
+.cartao_pag_galeria { text-align: center; }
+
+.imagem {
+	width: 10rem;
+	height: 10rem;
+	margin: 0.5rem;
+	border-radius: 4px;
+	transition: 0.2s opacity ease-in-out;
+	border: 2px solid transparent;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+	opacity: 0;
+}
+.imagem_visivel { opacity: 1; }
+
 .botao {
 	border: none;
 	outline: none;
@@ -140,7 +157,7 @@ body {
 }
 
 .form__text-field {
-	width: 100%;
+	max-width: 100%;
 	margin: 0.5rem 0;
 	padding: 0.5rem;
 	border-radius: 4px;
@@ -150,7 +167,7 @@ body {
 				0 0   6px rgba(0, 0, 0, 0.07);
 }
 .form__select {
-	width: 100%;
+	max-width: 100%;
 	margin: 0.5rem 0;
 	padding: 0.5rem;
 	border-radius: 4px;
@@ -171,33 +188,60 @@ body {
 	margin-top: -1rem;
 }
 
-.row {
-	position: relative;
+.dialog {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	transition: 0s   visibility linear 0s,
+				0.2s opacity ease-in-out 0s;
+}
+.dialog_escondido {
+	visibility: hidden;
+	opacity: 0;
+	transition: 0s   visibility linear 0.1s,
+				0.1s opacity ease-in-out 0s;
+}
+.dialog__fundo {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.4);
+}
+.dialog__cartao {
 	display: block;
-	margin-bottom: 1rem;
+	position: absolute;
+	opacity: 1;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%) scale(1);
+	width: calc(100% - 2rem);
+	max-width: 32rem;
+	box-shadow: 0 10px 24px rgba(0, 0, 0, 0.4);
+	z-index: 15;
+	transition: 0.2s transform ease-in-out 0s;
 }
-.col-2, .col-3, .col-4, .col-6, .col-8, .col-12 {
-	display: inline-block;
-	vertical-align: top;
-	margin: calc(0.5rem - 2px); /* Tirando 1px/2px adicionado por ser inline-block com quebra de linha entre eles */
+.dialog_escondido .dialog__cartao {
+	transform: translate(-50%, -50%) scale(0);
+	transition: 0s transform linear 0.1s;
 }
-.col-2  { width: calc(2  * 100% / 12 - 1rem); }
-.col-3  { width: calc(3  * 100% / 12 - 1rem); }
-.col-4  { width: calc(4  * 100% / 12 - 1rem); }
-.col-6  { width: calc(6  * 100% / 12 - 1rem); }
-.col-8  { width: calc(8  * 100% / 12 - 1rem); }
-.col-12 { width: calc(12 * 100% / 12 - 1rem); }
 
-@media screen and (max-width: 600px) {
-	.col-2, .col-3, .col-4, .col-6, .col-8, .col-12 {
-		display: block;
-		width: 100%;
-		margin: 1rem 0;
-	}
+.logo-home {
+	width: 50%;
+	float: left;
+	margin: 0.5rem;
+	opacity:65;
+}
+@media screen and (max-width: 935px) {
+	.logo-home { width: 100%; }
 }
 
 .footer {
-	padding: 0.5rem;
+	height: 3rem;
+	line-height: 3rem;
 	text-align: center;
 	background-color: #222;
 	color: #FFF;
@@ -255,112 +299,142 @@ body {
 .menu__lista {
 	position: relative;
 	padding: 1.5rem;
-	margin-top: 1rem;			
+	margin-top: 1rem;	
+	padding: 0.5rem;	
+	padding-top: 1.5rem;	
 }
 .menu__item {
-	color: rgba(49, 52, 54, 1);
+	color: rgba(49, 52, 54, 0.8);
 	cursor: pointer;
 	transition: 0.05s color ease-in-out;
+	background-color: #FFF;
+	padding: 1rem;
 }
 .menu__lista:hover .menu__item {
-	color: rgba(49, 52, 54, 0.6);
+	color: rgba(49, 52, 54, 1);
+	
 }
 .menu__item:hover {
-	color: rgba(49, 52, 54, 1) !important;
+	color: rgb(179, 206, 181) !important;
+	background-color:whitesmoke;
 }
 
 
 table {
-	max-width: 100%;
-	background-color: transparent;
-	border-collapse: collapse;
-	border-spacing: 0;
-}
+    max-width: 100%;
+    background-color: transparent;
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-family: arial;
+  }
 
-.table {
-	border-bottom: 1px solid #999999;
-	width: 100%;
-	margin-bottom: 1.25rem;
-}
+  .table {
+    border-bottom: #999999 solid 1px;
+    width: 100%;
+    margin-bottom: 20px;
+  }
 
-.table th,
-.table td {
-	padding: 0.5rem;
-	line-height: 1.25rem;
-	text-align: left;
+  .table th,
+  .table td {
+    font-size: 12px;
+    padding: 8px;
+    line-height: 20px;
+    text-align: left;
 	vertical-align: middle;
+	
+}
+  
+  .table td:last-child {
+     border-right: 0;
+  }
+
+  .table thead th {
+    font-weight: normal;
+    background-color: #4CAF50;
+    color: #fff;
+	font-size: 15px;
+	border-bottom: 1px solid #ffffff;
 }
 
-.table td:last-child {
-	border-right: 0;
-}
+  
 
-.table thead th {
-	font-weight: 400;
-	background-color: #4CAF50;
-	color: #FFF;
-	font-size: 1rem;
-	border-bottom: 1px solid #FFF;
-}
+  .table tbody > tr:nth-child(odd) > td,
+  .table tbody > tr:nth-child(odd) > th {
+	background-color: #eaf3e9;
+	border-bottom: 1px solid #ffffff;
+  }
 
 
+/* Small Sizes  referencia https://www.felipefialho.com/blog/2013/tutorial-tabela-responsiva */
+@media (max-width: 937px) { 
+  
+  /*  Tabela responsiva*/
+  .table__responsive {
+    display: block;
+    position: relative;
+    width: 100%;
+  }
 
-.table tbody > tr:nth-child(odd) > td,
-.table tbody > tr:nth-child(odd) > th {
-	background-color: #EAF3E9;
-	border-bottom: 1px solid #FFF;
-}
+  .table__responsive thead,
+  .table__responsive tbody,
+  .table__responsive th,
+  .table__responsive td,
+  .table__responsive tr {
+    display: block;
+  }
+  .table__responsive td,
+  .table__responsive th {
+    height: 35px;
+  }
 
-@media (max-width: 767px) {
-	.table__responsive {
-		display: block;
-		position: relative;
-		width: 100%;
-	}
+  .table__responsive thead {
+    float: left;
+  }
 
-	.table__responsive thead,
-	.table__responsive tbody,
-	.table__responsive th,
-	.table__responsive td,
-	.table__responsive tr {
-		display: block;
-	}
-	.table__responsive td,
-	.table__responsive th {
-		height: 2.125rem;
-		line-height: 1rem;
-	}
-
-	.table__responsive thead {
-		float: left;
-	}
-
-	.table__responsive tbody {
-		width: auto;
-		position: relative;
-		overflow-x: auto;
-		white-space: nowrap;
-		-webkit-overflow-scrolling: touch;
-	}
-
-	.table__responsive tbody tr {
-		display: inline-block;
-	}
-
-	.table td:last-child {
-		border-right: 1px solid #999999;
-	}
-}
-
-.formulario td{
-	padding: 10px;
-}
-
-.formulario {
-	overflow-x: auto;
+  .table__responsive tbody {
+    width: auto;
+    position: relative;
+    overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     white-space: nowrap;
+  }
+
+  .table__responsive tbody tr {
+    display: inline-block;
+  }
+  
+  .table td:last-child {
+	 border-right: #999999 solid 1px;
+  }
 }
+
+.form__inline { 
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center;
+  }
+  
+  /* Add some margins for each label */
+  .form__inline label {
+	margin: 5px 10px 5px 0;
+  }
+  
+  /* Style the input fields */
+  .form__inline input {
+	vertical-align: middle;
+	margin: 5px 10px 5px 0;
+	padding: 10px;
+	background-color: #fff;
+	border: 1px solid #ddd;
+  }
+  
+  /* Style the submit button */
+  .form__inline button {
+	padding: 10px 20px;
+	background-color: dodgerblue;
+	border: 1px solid #ddd;
+	color: white;
+  }
 
 ::-webkit-scrollbar {
 	background-color: rgba(0, 0, 0, 0.04);
