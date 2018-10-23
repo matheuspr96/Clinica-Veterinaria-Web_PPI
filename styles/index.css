@@ -82,9 +82,8 @@ body {
 	left: 0;
 	width: 100%;
 	padding: 6rem 0;
-	background: linear-gradient(rgba(76, 175, 80, 0.7), rgba(76, 175, 80, 0.7)),
-	            url("../images/clinica-veterinaria-preco.jpg");
-	background-position: top center;
+	background-image: url("../images/clinica-veterinaria-preco.jpg");
+	opacity: 0.40;
 }
 .header__titulo {
 	font-size: 4rem;
@@ -318,17 +317,6 @@ body {
 	width: 9rem;
 	margin-bottom: -3rem;
 	margin-left: calc(100% - 9rem);
-}
-@media screen and (max-width: 450px) {
-	.imagem-footer { display: none; }
-}
-
-.video {
-	width:  calc(16 * 4vw);
-	height: calc(9  * 4vw);
-	max-width:  calc(16 * 2.5rem);
-	max-height: calc(9  * 2.5rem);
-	border: none;
 }
 
 ::-webkit-scrollbar {

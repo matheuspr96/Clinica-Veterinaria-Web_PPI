@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<meta name="theme-color" content="#4CAF50">
 	<title>Clínica</title>
-	<link href="https://fonts.googleapis.com/css?family=Montserrat%7CRoboto:400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto:400|700" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="styles/index.css">
 </head>
@@ -50,11 +50,9 @@
 
 			<img src="./images/Zika.png" alt="Zika-PET" class="logo-home">
 			<span class="texto-maior">O Zika-Pet</span>
-			<p>
-				vem inovando na cidade de Uberlândia com seus conceitos
-				sofisticados, oferecendo um espaço agradável combinado com a melhor equipe de veterinários que fornecem
-				serviços de qualidade com eficiência.
-			</p>
+			<p>vem inovando na cidade de uberlândia com seus conceitos
+				sofisticado, oferecendo um espaço agradável combinado com a melhor equipe de veterinarios oferecendo
+				um serviço de qualidade e eficiência.</p>
 			<span class="texto-grande">Seu animal merece!</span>
 			<span class="fa fa-paw"></span>
 
@@ -63,7 +61,7 @@
 				Quem somos
 			</h2>
 			<h3 class="cartao__subtitulo">Missão</h3>
-			<p>Levar à população um atendimento de qualidade com boa infraestrutura.</p>
+			<p>Levar a população um atendimento de qualidade e com boa infraestrutura.</p>
 
 
 			<h3 class="cartao__subtitulo">Valores</h3>
@@ -71,29 +69,27 @@
 			<ul>
 				<li>Compromisso</li>
 				<li>Atenção</li>
-				<li>Amor pelo que fazemos</li>
+				<li>Amor pelo que faz</li>
 				<li>Qualidade</li>
 			</ul>
 
 			<h3 class="cartao__subtitulo">Visão</h3>
-			<p>Ser reconhecida como clínica inovadora no cenário nacional.</p>
+			<p>Ser reconhecida como clinica inovadora no cenário nacional.</p>
 
 		</article>
 
 		<article class="cartao cartao_pag_galeria">
 			<h2 class="cartao__titulo">Galeria</h2>
 			<div id="imagens"></div>
-			<iframe
-					class="video"
-					src="https://www.youtube.com/embed/bykaW0rEGsY"
-					allow="autoplay; encrypted-media"
-					allowfullscreen>
-			</iframe>
 		</article>
 
 		<article class="cartao cartao_pag_contato">
 			<h2 class="cartao__titulo">Contato</h2>
+<<<<<<< HEAD
 			<form action="./php/processa_form_contato.php" method="POST" class="form"">
+=======
+			<form action="processa_form_contato.php" method="POST" class="form" onsubmit="return false;">
+>>>>>>> d279b76fb91a71851119f0d1e649f54d662c74df
 				<label for="contato__nome" class="form__label">Nome</label><br>
 				<input type="text" name="contato__nome" id="contato__nome" class="form__text-field"><br><br>
 
@@ -119,7 +115,7 @@
 		</article>
 
 		<article class="cartao cartao_pag_agendamento">
-			<h2 class="cartao__titulo">Agendamento</h2><br>
+			<h1 class="cartao__titulo">Agendamento</h1><br>
 			<form action="#" method="POST" class="form" onsubmit="return false;">
 				<label class="form__label">Especialidade</label><br>
 				<select class="form__select" name="agendamento__especialidade" id="agendamento__especialidade">
@@ -135,7 +131,7 @@
 					<option value="clarice">Claríce</option>
 				</select><br><br>
 
-				<label for="agendamento__consulta" class="form__label">Data consulta</label><br>
+				<label for="consulta" class="form__label">Data consulta</label><br>
 				<input type="date" name="agendamento__consulta" id="agendamento__consulta" class="form__text-field"><br><br>
 
 				<label class="form__label">Horário</label><br>
@@ -156,7 +152,7 @@
 
 		</article>
 
-		<img class="imagem-footer" src="images/799365.jpg" alt="Esperamos vocês!">
+		<img class="imagem-footer" src="images/799365.jpg">
 		<footer class="footer"></footer>
 	</main>
 
