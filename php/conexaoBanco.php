@@ -8,10 +8,6 @@
         $conexao = new mysqli(HOST, USER, PASSWORD, DATABASE);
         if($conexao->conect_error)
         throw new Exception('Falha na cominicação com o MySQL'.$conexao->connect_error);
-<<<<<<< HEAD
-=======
-
->>>>>>> d279b76fb91a71851119f0d1e649f54d662c74df
         return $conexao;
     }
 ?>

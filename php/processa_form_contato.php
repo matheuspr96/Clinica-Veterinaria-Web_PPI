@@ -11,7 +11,6 @@ function filtraEntrada($dado)
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") 
-<<<<<<< HEAD
 	{
 		$msgErro = "";
 
@@ -21,45 +20,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 		$nome 		= filtraEntrada($_POST["contato__nome"]);
 		$email 		= filtraEntrada($_POST["contato__email"]);
 		$motivo		= filtraEntrada($_POST["contato__motivo[]"]);
-		$mensagem = filtraEntrada($_POST["contato__mensagem"]);
+		$mensagem 	= filtraEntrada($_POST["contato__mensagem"]);
     	
     try
 	{    
-	// Função definida no arquivo conexaoMysql.php
-=======
-<<<<<<< HEAD
-	{
-		$msgErro = "";
-
-    	// Define e inicializa as variáveis
-    	$nome, $email, $motivo, $mensagem = "";
-
-    	$nome  = filtraEntrada($_POST["contato__nome"]);
-    	$email = filtraEntrada($_POST["contato__email"]);
-    	$motivo = filtraEntrada($_POST["motivo"]);
-    	$mensagem = filtraEntrada($_POST["contato__mensagem"]);
-=======
-{
-	$msgErro = "";
-
-    // Define e inicializa as variáveis
-    $nome, $email, $motivo, $mensagem = "";
-
-    $nome  = filtraEntrada($_POST["contato__nome"]);
-    $email = filtraEntrada($_POST["contato__email"]);
-    $motivo = filtraEntrada($_POST["motivo"]);
-    $mensagem = filtraEntrada($_POST["contato__mensagem"]);
->>>>>>> a34ad31faedd110db9a61378a0f09b7d371feba0
-    
-    try
-	{    
-		// Função definida no arquivo conexaoMysql.php
->>>>>>> d279b76fb91a71851119f0d1e649f54d662c74df
 		$conn = conectaMySQL();
 
 		$sql = "
 		  INSERT INTO P_CONTATO (IDContato, Nome, Email, Motivo, Mensagem)
-<<<<<<< HEAD
 		   VALUES (null, ?, ?, null, ?);
 		";
 
@@ -80,38 +48,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 	}
 		catch (Exception $e)
 	{
-	$msgErro = $e->getMessage();
-	}
-}
-
-	
-
-  
-?>
-=======
-		  VALUES (null, '$nome', '$email', '$motivo', '$mensagem');
-		";
-
-		if (! $conn->query($sql))
-		  throw new Exception("Falha na inserção dos dados: " . $conn->error);
-<<<<<<< HEAD
-
-=======
->>>>>>> a34ad31faedd110db9a61378a0f09b7d371feba0
-	}
-	catch (Exception $e)
-	{
 		$msgErro = $e->getMessage();
 	}
 }
-  
-?>
-<<<<<<< HEAD
-=======
-
-    
-
 
 ?>
->>>>>>> a34ad31faedd110db9a61378a0f09b7d371feba0
->>>>>>> d279b76fb91a71851119f0d1e649f54d662c74df
