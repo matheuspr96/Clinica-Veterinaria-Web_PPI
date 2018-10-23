@@ -14,17 +14,10 @@ $(() => {
 		// Mostra cartao desejado
 		$(".cartao_pag_" + mostra).addClass("cartao_visivel");
     });
-    
-	$(".mostra-login").click(e => $("#login-dialog").toggleClass("dialog_escondido"));
 	
-	$("#botao-login").click(e =>{
-		window.location = "./index.html";
+	$(".redir-home").click(e => {
+		window.location = "/";
 	});
-
-	/**
-	 * Dialogs
-	 */
-	$(".dialog__fundo").click(e => $(e.target.parentNode).addClass("dialog_escondido"));
 
 	/**
 	 * Menu
