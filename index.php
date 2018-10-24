@@ -87,7 +87,7 @@
 		<iframe style="display:none;" name="contato" src="./php/processa_form_contato.php"></iframe>
 
 			<h2 class="cartao__titulo">Contato</h2>
-			<form target="contato"action="./php/processa_form_contato.php" method="POST" class="form">
+			<form target="contato" action="./php/processa_form_contato.php" method="POST" class="form">
 
 				<label for="contato__nome" class="form__label">Nome</label><br>
 				<input type="text" name="contato__nome" id="contato__nome" class="form__text-field"><br><br>
@@ -109,17 +109,15 @@
 				<textarea name="contato__mensagem" id="contato__mensagem" cols="50" rows="5" class="form__text-field"></textarea><br><br>
 
 				<button type="submit" class="form__botao botao">Enviar</button>
-			
-				<h3 class='' style="display:none;" >Dados armazenados com sucesso!</h3>"
-			
-				
+
 			</form>
 
 		</article>
 
 		<article class="cartao cartao_pag_agendamento">
+		 <iframe style="display:none;" name="agenda" src="./php/processa_form_agendamento.php"></iframe>
 			<h1 class="cartao__titulo">Agendamento</h1><br>
-			<form action="#" method="POST" class="form">
+			<form target="agenda" action="./php/processa_form_agendamento.php" method="POST" class="form">
 				<label class="form__label">Especialidade</label><br>
 				<select class="form__select" name="agendamento__especialidade" id="agendamento__especialidade">
 					<option value="oftamologia">Oftamologia</option>
@@ -139,9 +137,9 @@
 
 				<label class="form__label">Horário</label><br>
 				<select class="form__select" name="agendamento__horario" id="agendamento__horario">
-					<option value="8am">08:00</option>
-					<option value="2pm">14:00</option>
-					<option value="7pm">19:00</option>
+					<option value="08:00:00">08:00</option>
+					<option value="14:00:00":>14:00</option>
+					<option value="19:00:00">19:00</option>
 				</select><br><br>
 
 				<label for="agendamento__nome" class="form__label">Nome</label><br>

@@ -15,20 +15,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 		$msgErro = "";
 
 		// Define e inicializa as variáveis
-		$nome = $email = $motivo = $mensagem = "";
+		$especialidade = $medico = $data = $horario = $nome = $telefone = "";
 
-		$nome 		= filtraEntrada($_POST["contato__nome"]);
-		$email 		= filtraEntrada($_POST["contato__email"]);
-		$motivo		= filtraEntrada($_POST["contato__motivo"]);
-		$mensagem 	= filtraEntrada($_POST["contato__mensagem"]);
+		$especialidade 		= filtraEntrada($_POST["agendamento__especialidade"]);
+        $medico 		    = filtraEntrada($_POST["agendamento__medico"]);
+
+        $data		        = strtotime($_POST["agendamento__consulta"]);
+        $newformat          = date('Y-m-d',$data);
+
+        $horario 	        = strtotime($_POST["agendamento__horario"]);
+        $horarioformat      =  date("H:i:s",$horario);    
+
+        $nome           	= filtraEntrada($_POST["agendamento__nome"]);
+        $telefone 	        = filtraEntrada($_POST["agendamento__telefone"]);
     	
     try
 	{    
 		$conn = conectaMySQL();
 
 		$sql = "
-		  INSERT INTO P_CONTATO (IDContato, Nome, Email, Motivo, Mensagem)
-		   VALUES (null, ?, ?, ?, ?);
+		  INSERT INTO P_AGENDAMENTO (IDConsulta, Especialidade, Medico, DataAgendamento, Horario, Nome, Telefone)
+		   VALUES (null, ?, ?, ?, ?, ?, ?);
 		";
 
     // prepara a declaração SQL (stmt é uma abreviação de statement)
@@ -36,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
       throw new Exception("Falha na operacao prepare: " . $conn->error);
 			
     // Faz a ligação dos parâmetros em aberto com os valores.
-    if (! $stmt->bind_param("ssss", $nome, $email, $motivo, $mensagem))
+    if (! $stmt->bind_param("ssssss", $especialidade, $medico, $newformat, $horarioformat, $nome, $telefone))
       throw new Exception("Falha na operacao bind_param: " . $stmt->error);
 		
     if (! $stmt->execute())
