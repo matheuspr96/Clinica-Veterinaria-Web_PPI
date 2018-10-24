@@ -84,8 +84,10 @@
 		</article>
 
 		<article class="cartao cartao_pag_contato">
+		<iframe style="display:none;" name="contato" src="./php/processa_form_contato.php"></iframe>
+
 			<h2 class="cartao__titulo">Contato</h2>
-			<form action="./php/processa_form_contato.php" method="POST" class="form"">
+			<form target="contato"action="./php/processa_form_contato.php" method="POST" class="form">
 
 				<label for="contato__nome" class="form__label">Nome</label><br>
 				<input type="text" name="contato__nome" id="contato__nome" class="form__text-field"><br><br>
@@ -94,19 +96,23 @@
 				<input type="email" name="contato__email" id="contato__email" class="form__text-field"><br><br>
 
 				<label class="form__label">Motivo</label><br>
-				<input type="radio" name="contato__motivo[]" id="m_reclamacao" class="form__checkbox">
-				<label for="m_reclamacao" class="form__cb-label">Reclamação</label><br>
-				<input type="radio" name="contato__motivo[]" id="m_sugestao" class="form__checkbox">
-				<label for="m_sugestao" class="form__cb-label">Sugestão</label><br>
-				<input type="radio" name="contato__motivo[]" id="m_elogio" class="form__checkbox">
-				<label for="m_elogio" class="form__cb-label">Elogio</label><br>
-				<input type="radio" name="contato__motivo[]" id="m_duvida" class="form__checkbox">
-				<label for="m_duvida" class="form__cb-label">Dúvida</label><br><br>
+				<input type="radio" name="contato__motivo" value="reclamacao" class="form__checkbox">
+				<label for="reclamacao" class="form__cb-label">Reclamação</label><br>
+				<input type="radio" name="contato__motivo" value="sugestao" class="form__checkbox">
+				<label for="sugestao" class="form__cb-label">Sugestão</label><br>
+				<input type="radio" name="contato__motivo" value="elogio" class="form__checkbox">
+				<label for="elogio" class="form__cb-label">Elogio</label><br>
+				<input type="radio" name="contato__motivo" value="duvida" class="form__checkbox">
+				<label for="duvida" class="form__cb-label">Dúvida</label><br><br>
 
 				<label for="contato__mensagem" class="form__label">Mensagem</label><br>
 				<textarea name="contato__mensagem" id="contato__mensagem" cols="50" rows="5" class="form__text-field"></textarea><br><br>
 
 				<button type="submit" class="form__botao botao">Enviar</button>
+			
+				<h3 class='' style="display:none;" >Dados armazenados com sucesso!</h3>"
+			
+				
 			</form>
 
 		</article>

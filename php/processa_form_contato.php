@@ -1,5 +1,5 @@
 <?php
-require "conexaoBanco.php";
+require "./php/conexaoBanco.php";
 
 function filtraEntrada($dado) 
 {
@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 
 		$nome 		= filtraEntrada($_POST["contato__nome"]);
 		$email 		= filtraEntrada($_POST["contato__email"]);
-		$motivo		= filtraEntrada($_POST["contato__motivo[]"]);
+		$motivo		= filtraEntrada($_POST["contato__motivo"]);
 		$mensagem 	= filtraEntrada($_POST["contato__mensagem"]);
     	
     try
@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 
 		$sql = "
 		  INSERT INTO P_CONTATO (IDContato, Nome, Email, Motivo, Mensagem)
-		   VALUES (null, ?, ?, null, ?);
+		   VALUES (null, ?, ?, ?, ?);
 		";
 
     // prepara a declaração SQL (stmt é uma abreviação de statement)
@@ -36,19 +36,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
       throw new Exception("Falha na operacao prepare: " . $conn->error);
 			
     // Faz a ligação dos parâmetros em aberto com os valores.
-    if (! $stmt->bind_param("sss", $nome, $email, $mensagem))
+    if (! $stmt->bind_param("ssss", $nome, $email, $motivo, $mensagem))
       throw new Exception("Falha na operacao bind_param: " . $stmt->error);
 		
     if (! $stmt->execute())
       throw new Exception("Falha na operacao execute: " . $stmt->error);
 	
-	  
 	$formProcSucesso = true;
 	
 	}
 		catch (Exception $e)
 	{
 		$msgErro = $e->getMessage();
+	}
+	$doc = new DomDocument;
+
+	if ($msgErro == "")
+	
+	 echo "<script type='javascript'>alert('Dadops enviado com Sucesso!');";
+	else
+		echo "<h3 class=''>Cadastro não realizado: $msgErro</h3>";
 	}
 }
 
