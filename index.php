@@ -87,7 +87,7 @@
 		<iframe style="display:none;" name="contato" src="./php/processa_form_contato.php"></iframe>
 
 			<h2 class="cartao__titulo">Contato</h2>
-			<form target="contato" action="./php/processa_form_contato.php" method="POST" class="form">
+			<form target="contato" action="" method="POST" class="form" id="formCadastroContato">
 
 				<label for="contato__nome" class="form__label">Nome</label><br>
 				<input type="text" name="contato__nome" id="contato__nome" class="form__text-field"><br><br>
@@ -108,9 +108,16 @@
 				<label for="contato__mensagem" class="form__label">Mensagem</label><br>
 				<textarea name="contato__mensagem" id="contato__mensagem" cols="50" rows="5" class="form__text-field"></textarea><br><br>
 
-				<button type="submit" class="form__botao botao">Enviar</button>
+			<button type="button" id ="btnCadastraContato" class="form__botao botao" onclick="sendFormContato();">Enviar</button>
 
 			</form>
+			<div class=" createclass" id="divSuccessMsg" style="display: none; margin-top: 10px;">
+    			<strong>Cadastro realizado com sucesso: </strong><span id="successMsg"></span>
+  			</div>
+
+  			<div class="createclass" id="divErrorMsg" style="display: none; margin-top: 10px;">
+    			<strong>A operação não pode ser realizada: </strong><span id="errorMsg"></span>
+  			</div>
 
 		</article>
 

@@ -1,6 +1,5 @@
 $(() => {
 	var isGaleriaCarregada = false; // Guarda se as imagens da galeria já foram carregadas ou não (para exibir a animação)
-
 	/**
 	 * Menu navbar
 	 */
@@ -50,6 +49,7 @@ $(() => {
 			e.target.style.border = "2px solid transparent";
 		}));
 	});
+	
 
 	/**
 	 * Botao de login que lança o MODAL
@@ -75,4 +75,56 @@ $(() => {
 	 * Footer
 	 */
 	$(".footer").text(`\u00A9 ${(new Date()).getFullYear()} Zika-PET`);
+
 });
+
+	/* Ajax forms */
+	
+	function sendFormContato()
+	{
+		$("#divSuccessMsg").hide();
+		$("#divErrorMsg").hide();
+		
+		document.getElementById("btnCadastraContato").disabled = true;    
+		var formContato = document.getElementById("formCadastroContato");
+		var formData = new FormData(formContato);  // Ver datalhes em https://developer.mozilla.org/pt-BR/docs/Web/API/FormData/FormData
+
+		$.ajax({
+			url: './php/processa_form_contato.php',
+			method: "POST",
+			data: formData,
+			
+			cache: false,
+			processData: false,  // Diz ao jQuery para não processar os dados do formulário (ver detalhes em http://api.jquery.com/jquery.ajax/)   
+			contentType: false,  // Diz ao jQuery para não definir cabeçalho de contentType (ver detalhes em http://api.jquery.com/jquery.ajax/)   
+
+			success: function (result) {
+
+				if (result.substring(0, 2) == "OK")
+				{
+					document.getElementById('divSuccessMsg').innerHTML = "Dados salvos com sucesso";    
+					$("#divSuccessMsg").stop().fadeIn(200).delay(2500).fadeOut(200);
+					document.getElementById("btnCadastraContato").disabled = false;
+					document.getElementById("formCadastroContato").reset(); 
+				}
+				else
+					showMessageError(result);
+			},
+
+			error: function (xhr, status, error) {
+
+				var errorMsg = xhr.responseText;
+				document.getElementById("errorMsg").innerText = errorMsg;
+				$("#divErrorMsg").fadeIn(200);
+				document.getElementById("btnCadastraContato").disabled = false;
+			}
+		});
+	}
+	
+	function showMessageError(message)
+	{
+		document.getElementById("errorMsg").innerHTML = message;
+		$("#divErrorMsg").fadeIn(200);
+	}	
+
+
