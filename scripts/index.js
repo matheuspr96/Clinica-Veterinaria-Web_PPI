@@ -120,8 +120,55 @@ $(() => {
 			}
 		});
 	}
+
+	function sendFormAgendamento()
+	{
+		$("#divSuccessMsgAg").hide();
+		$("#divSuccessMsgAg").hide();
+		
+		document.getElementById("btnCadastraAgendamento").disabled = true;    
+		var formAgendamento = document.getElementById("formCadastroAgendamento");
+		var formData = new FormData(formAgendamento);  // Ver datalhes em https://developer.mozilla.org/pt-BR/docs/Web/API/FormData/FormData
+
+		$.ajax({
+			url: './php/processa_form_agendamento.php',
+			method: "POST",
+			data: formData,
+			
+			cache: false,
+			processData: false,  // Diz ao jQuery para não processar os dados do formulário (ver detalhes em http://api.jquery.com/jquery.ajax/)   
+			contentType: false,  // Diz ao jQuery para não definir cabeçalho de contentType (ver detalhes em http://api.jquery.com/jquery.ajax/)   
+
+			success: function (result) {
+
+				if (result.substring(0, 2) == "OK")
+				{
+					document.getElementById('divSuccessMsgAg').innerHTML = "Dados salvos com sucesso";    
+					$("#divSuccessMsgAg").stop().fadeIn(200).delay(2500).fadeOut(200);
+					document.getElementById("divSuccessMsgAg").disabled = false;
+					document.getElementById("formCadastroAgendamento").reset(); 
+				}
+				else
+				showMessageErrorAg(result);
+			},
+
+			error: function (xhr, status, error) {
+
+				var errorMsg = xhr.responseText;
+				document.getElementById("divSuccessMsgAg").innerText = errorMsg;
+				$("#divSuccessMsgAg").fadeIn(200);
+				document.getElementById("btnCadastraAgendamento").disabled = false;
+			}
+		});
+	}
 	
 	function showMessageError(message)
+	{
+		document.getElementById("errorMsg").innerHTML = message;
+		$("#divErrorMsg").fadeIn(200);
+	}	
+
+	function showMessageErrorAg(message)
 	{
 		document.getElementById("errorMsg").innerHTML = message;
 		$("#divErrorMsg").fadeIn(200);

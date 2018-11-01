@@ -84,33 +84,31 @@
 		</article>
 
 		<article class="cartao cartao_pag_contato">
-		<iframe style="display:none;" name="contato" src="./php/processa_form_contato.php"></iframe>
-
 			<h2 class="cartao__titulo">Contato</h2>
-			<form target="contato" action="" method="POST" class="form" id="formCadastroContato">
-
+			<form target="" action="" method="POST" class="form" id="formCadastroContato">
 				<label for="contato__nome" class="form__label">Nome</label><br>
-				<input type="text" name="contato__nome" id="contato__nome" class="form__text-field"><br><br>
+					<input type="text" name="contato__nome" id="contato__nome" class="form__text-field"><br><br>
 
 				<label for="contato__email" class="form__label">Email</label><br>
-				<input type="email" name="contato__email" id="contato__email" class="form__text-field"><br><br>
+					<input type="email" name="contato__email" id="contato__email" class="form__text-field"><br><br>
 
 				<label class="form__label">Motivo</label><br>
-				<input type="radio" name="contato__motivo" value="reclamacao" class="form__checkbox">
+					<input type="radio" name="contato__motivo" value="reclamacao" class="form__checkbox">
 				<label for="reclamacao" class="form__cb-label">Reclamação</label><br>
-				<input type="radio" name="contato__motivo" value="sugestao" class="form__checkbox">
+					<input type="radio" name="contato__motivo" value="sugestao" class="form__checkbox">
 				<label for="sugestao" class="form__cb-label">Sugestão</label><br>
-				<input type="radio" name="contato__motivo" value="elogio" class="form__checkbox">
+					<input type="radio" name="contato__motivo" value="elogio" class="form__checkbox">
 				<label for="elogio" class="form__cb-label">Elogio</label><br>
-				<input type="radio" name="contato__motivo" value="duvida" class="form__checkbox">
+					<input type="radio" name="contato__motivo" value="duvida" class="form__checkbox">
 				<label for="duvida" class="form__cb-label">Dúvida</label><br><br>
 
 				<label for="contato__mensagem" class="form__label">Mensagem</label><br>
 				<textarea name="contato__mensagem" id="contato__mensagem" cols="50" rows="5" class="form__text-field"></textarea><br><br>
 
-			<button type="button" id ="btnCadastraContato" class="form__botao botao" onclick="sendFormContato();">Enviar</button>
+				<button type="button" id ="btnCadastraContato" onclick="sendFormContato();" class="form__botao botao">Enviar</button>
 
 			</form>
+
 			<div class=" createclass" id="divSuccessMsg" style="display: none; margin-top: 10px;">
     			<strong>Cadastro realizado com sucesso: </strong><span id="successMsg"></span>
   			</div>
@@ -122,9 +120,8 @@
 		</article>
 
 		<article class="cartao cartao_pag_agendamento">
-		 <iframe style="display:none;" name="agenda" src="./php/processa_form_agendamento.php"></iframe>
 			<h1 class="cartao__titulo">Agendamento</h1><br>
-			<form target="agenda" action="./php/processa_form_agendamento.php" method="POST" class="form">
+			<form  id = "formCadastroAgendamento" target="agenda" action="" method="POST" class="form">
 				<label class="form__label">Especialidade</label><br>
 				<select class="form__select" name="agendamento__especialidade" id="agendamento__especialidade">
 					<option value="oftamologia">Oftamologia</option>
@@ -155,8 +152,17 @@
 				<label for="agendamento__telefone" class="form__label">Telefone</label><br>
 				<input type="text" name="agendamento__telefone" id="agendamento__telefone" class="form__text-field"><br><br>
 
-				<button class="form__botao botao">Agendar</button>
+				<button type="button" id="btnCadastraAgendamento" onclick="sendFormAgendamento()"; class="form__botao botao">Agendar</button>
+
 			</form>
+
+			<div class=" createclass" id="divSuccessMsgAg" style="display: none; margin-top: 10px;">
+    			<strong>Cadastro realizado com sucesso: </strong><span id="successMsg"></span>
+  			</div>
+
+  			<div class="createclass" id="divErrorMsgAg" style="display: none; margin-top: 10px;">
+    			<strong>A operação não pode ser realizada: </strong><span id="errorMsg"></span>
+  			</div>
 
 		</article>
 

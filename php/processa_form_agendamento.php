@@ -49,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     if (! $stmt->execute())
       throw new Exception("Falha na operacao execute: " . $stmt->error);
 	
-	$formProcSucesso = true;
+			echo "OK Dados cadastrados";
 	
 	}
 	catch (Exception $e)
