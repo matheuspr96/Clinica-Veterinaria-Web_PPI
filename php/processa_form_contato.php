@@ -27,9 +27,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 		// Define e inicializa as variáveis
 		$nome = $email = $motivo = $mensagem = "";
 
-		$nome 		= filtraEntrada($_POST["contato__nome"]);
-		$email 		= filtraEntrada($_POST["contato__email"]);
-		$motivo		= filtraEntrada($_POST["contato__motivo"]);
+		$nome 			= filtraEntrada($_POST["contato__nome"]);
+		$email 			= filtraEntrada($_POST["contato__email"]);
+		$motivo		  = filtraEntrada($_POST["contato__motivo"]);
 		$mensagem 	= filtraEntrada($_POST["contato__mensagem"]);
 
 		if ($nome == "")

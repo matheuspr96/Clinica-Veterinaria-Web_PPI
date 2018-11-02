@@ -161,7 +161,7 @@
   			</div>
 
   			<div class="mensagemErro" id="divErrorMsgAg">
-    			<strong>A operação não pode ser realizada</strong><span id="errorMsg"></span>
+    			<strong>A operação não pode ser realizada</strong><span id="errorMsgAg"></span>
   			</div>
 
 		</article>

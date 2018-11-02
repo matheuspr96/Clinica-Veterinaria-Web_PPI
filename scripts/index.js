@@ -126,7 +126,7 @@ $(() => {
 	function sendFormAgendamento()
 	{
 		$("#divSuccessMsgAg").hide();
-		$("#divErrorMsgCon").hide();
+		$("#divErrorMsgAg").hide();
 		
 		document.getElementById("btnCadastraAgendamento").disabled = true;    
 		var formAgendamento = document.getElementById("formCadastroAgendamento");
