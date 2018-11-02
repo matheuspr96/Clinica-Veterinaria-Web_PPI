@@ -109,11 +109,11 @@
 
 			</form>
 
-			<div class=" createclass" id="divSuccessMsg" style="display: none; margin-top: 10px;">
+			<div class="mensagemSucesso" id="divSuccessMsg">
     			<strong>Cadastro realizado com sucesso: </strong><span id="successMsg"></span>
   			</div>
 
-  			<div class="createclass" id="divErrorMsg" style="display: none; margin-top: 10px;">
+  			<div class="mensagemErro" id="divErrorMsg">
     			<strong>A operação não pode ser realizada: </strong><span id="errorMsg"></span>
   			</div>
 
@@ -121,7 +121,7 @@
 
 		<article class="cartao cartao_pag_agendamento">
 			<h1 class="cartao__titulo">Agendamento</h1><br>
-			<form  id = "formCadastroAgendamento" target="agenda" action="" method="POST" class="form">
+			<form  id = "formCadastroAgendamento" class="form">
 				<label class="form__label">Especialidade</label><br>
 				<select class="form__select" name="agendamento__especialidade" id="agendamento__especialidade">
 					<option value="oftamologia">Oftamologia</option>
@@ -152,16 +152,16 @@
 				<label for="agendamento__telefone" class="form__label">Telefone</label><br>
 				<input type="text" name="agendamento__telefone" id="agendamento__telefone" class="form__text-field"><br><br>
 
-				<button type="button" id="btnCadastraAgendamento" onclick="sendFormAgendamento()"; class="form__botao botao">Agendar</button>
+				<button type="button" id="btnCadastraAgendamento" onclick="sendFormAgendamento();" class="form__botao botao">Agendar</button>
 
 			</form>
 
-			<div class=" createclass" id="divSuccessMsgAg" style="display: none; margin-top: 10px;">
-    			<strong>Cadastro realizado com sucesso: </strong><span id="successMsg"></span>
+			<div class="mensagemSucesso" id="divSuccessMsgAg">
+    			<strong>Cadastro realizado com sucesso</strong><span id="successMsg"></span>
   			</div>
 
-  			<div class="createclass" id="divErrorMsgAg" style="display: none; margin-top: 10px;">
-    			<strong>A operação não pode ser realizada: </strong><span id="errorMsg"></span>
+  			<div class="mensagemErro" id="divErrorMsgAg">
+    			<strong>A operação não pode ser realizada</strong><span id="errorMsg"></span>
   			</div>
 
 		</article>

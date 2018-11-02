@@ -339,3 +339,25 @@ body {
 	background-color: rgba(0, 0, 0, 0.14);
 	border-radius: 0.25rem;
 }
+
+.mensagemSucesso {
+	display: none;
+	 max-width: 16rem;
+	 margin: 0.5rem 0;
+	 padding: 0.5rem;
+	 border-radius: 0.7rem;
+	 border: 0.1rem solid #39493d;
+	 background-color: #b9dfc4;
+	 outline: none;
+}
+
+.mensagemErro {
+	display: none;
+	max-width: 16rem;
+	 margin: 0.5rem 0;
+	 padding: 0.5rem;
+	 border-radius: 0.7rem;
+	 border: 0.1rem solid #39493d;
+	 background-color: #d89898;
+	 outline: none;
+}

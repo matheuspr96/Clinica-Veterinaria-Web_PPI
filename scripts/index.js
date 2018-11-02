@@ -86,6 +86,8 @@ $(() => {
 		$("#divErrorMsg").hide();
 		
 		document.getElementById("btnCadastraContato").disabled = true;    
+		document.getElementById("btnCadastraContato").style.backgroundColor = "red";  
+
 		var formContato = document.getElementById("formCadastroContato");
 		var formData = new FormData(formContato);  // Ver datalhes em https://developer.mozilla.org/pt-BR/docs/Web/API/FormData/FormData
 
@@ -124,7 +126,7 @@ $(() => {
 	function sendFormAgendamento()
 	{
 		$("#divSuccessMsgAg").hide();
-		$("#divSuccessMsgAg").hide();
+		$("#divErrorMsgCon").hide();
 		
 		document.getElementById("btnCadastraAgendamento").disabled = true;    
 		var formAgendamento = document.getElementById("formCadastroAgendamento");
@@ -145,7 +147,7 @@ $(() => {
 				{
 					document.getElementById('divSuccessMsgAg').innerHTML = "Dados salvos com sucesso";    
 					$("#divSuccessMsgAg").stop().fadeIn(200).delay(2500).fadeOut(200);
-					document.getElementById("divSuccessMsgAg").disabled = false;
+					document.getElementById("btnCadastraAgendamento").disabled = false;
 					document.getElementById("formCadastroAgendamento").reset(); 
 				}
 				else
@@ -153,10 +155,9 @@ $(() => {
 			},
 
 			error: function (xhr, status, error) {
-
 				var errorMsg = xhr.responseText;
-				document.getElementById("divSuccessMsgAg").innerText = errorMsg;
-				$("#divSuccessMsgAg").fadeIn(200);
+				document.getElementById("errorMsgAg").innerText = errorMsg;
+				$("#divErrorMsgAg").fadeIn(200);
 				document.getElementById("btnCadastraAgendamento").disabled = false;
 			}
 		});
@@ -170,8 +171,8 @@ $(() => {
 
 	function showMessageErrorAg(message)
 	{
-		document.getElementById("errorMsg").innerHTML = message;
-		$("#divErrorMsg").fadeIn(200);
+		document.getElementById("errorMsgAg").innerHTML = message;
+		$("#divErrorMsgAg").fadeIn(200);
 	}	
 
 

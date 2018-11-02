@@ -12,7 +12,17 @@ function filtraEntrada($dado)
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") 
 {
+	try
+	{  
 		$msgErro = "";
+		if (!isset($_POST["contato__nome"]))
+			throw new Exception("O nome deve ser fornecido");
+		if (!isset($_POST["contato__email"]))
+			throw new Exception("O email deve ser fornecido");
+		if (!isset($_POST["contato__motivo"]))
+			throw new Exception("O motivo de contato deve ser fornecido");
+		if (!isset($_POST["contato__mensagem"]))
+			throw new Exception("A mensagem de contato deve ser fornecida");
 
 		// Define e inicializa as variáveis
 		$nome = $email = $motivo = $mensagem = "";
@@ -21,9 +31,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 		$email 		= filtraEntrada($_POST["contato__email"]);
 		$motivo		= filtraEntrada($_POST["contato__motivo"]);
 		$mensagem 	= filtraEntrada($_POST["contato__mensagem"]);
+
+		if ($nome == "")
+			throw new Exception("O nome deve ser fornecido");
+		if ($email == "")
+			throw new Exception("O email deve ser fornecido");
+		if ($motivo == "")
+			throw new Exception("O motivo de contato deve ser fornecido");
+		if ($mensagem == "")
+			throw new Exception("A mensagem de contato deve ser fornecida");
     	
-    try
-	{    
+    
 		$conn = conectaMySQL();
 
 		$sql = "
@@ -47,7 +65,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 	}
 	catch (Exception $e)
 	{
+		http_response_code(400); 
 		$msgErro = $e->getMessage();
+		echo $msgErro;
 	}
 }
 
