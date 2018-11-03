@@ -28,15 +28,17 @@ $(() => {
 	 * Footer
 	 */
 	$(".footer").text(`\u00A9 ${(new Date()).getFullYear()} Zika-PET`);
+	$("#divSuccessMsg").hide();
+	$("#divErrorMsg").hide();
 });
 
 function sendFormfuncionario()
 {
-	//$("#divSuccessMsgAg").hide();
-	//$("#divErrorMsgAg").hide();
+	$("#divSuccessMsg").hide();
+	$("#divErrorMsg").hide();
 	
 	document.getElementById("btnCadastraFuncionario").disabled = true;    
-	var formAgendamento = document.getElementById("formCadastroAgendamento");
+	var formAgendamento = document.getElementById("formCadastroFuncionario");
 	var formData = new FormData(formAgendamento);  // Ver datalhes em https://developer.mozilla.org/pt-BR/docs/Web/API/FormData/FormData
 
 	$.ajax({
@@ -52,20 +54,20 @@ function sendFormfuncionario()
 
 			if (result.substring(0, 2) == "OK")
 			{
-				//document.getElementById('divSuccessMsgAg').innerHTML = "Dados salvos com sucesso";    
-				//$("#divSuccessMsgAg").stop().fadeIn(200).delay(2500).fadeOut(200);
-				//document.getElementById("btnCadastraAgendamento").disabled = false;
-				//document.getElementById("formCadastroAgendamento").reset(); 
+				document.getElementById('divSuccessMsg').innerHTML = "Dados salvos com sucesso";    
+				$("#divSuccessMsg").stop().fadeIn(200).delay(2500).fadeOut(200);
+				document.getElementById("btnCadastraFuncionario").disabled = false;
+				document.getElementById("formCadastroFuncionario").reset(); 
 			}
 			else
-			showMessageErrorAg(result);
+			showMessageError(result);
 		},
 
 		error: function (xhr, status, error) {
-			//var errorMsg = xhr.responseText;
-			//document.getElementById("errorMsgAg").innerText = errorMsg;
-			//$("#divErrorMsgAg").fadeIn(200);
-			//document.getElementById("btnCadastraAgendamento").disabled = false;
+			var errorMsg = xhr.responseText;
+			document.getElementById("errorMsg").innerText = errorMsg;
+			$("#divErrorMsg").fadeIn(200);
+			document.getElementById("btnCadastraFuncionario").disabled = false;
 		}
 	});
 }

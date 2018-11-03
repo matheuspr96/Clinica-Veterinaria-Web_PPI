@@ -502,6 +502,14 @@
                 <br>
                 <button id="btnCadastraFuncionario" type="button" onclick="sendFormfuncionario();" class="form__botao botao" >Enviar</button>
             </form>
+            
+            <div class="mensagemSucesso" id="divSuccessMsg">
+                <strong>Cadastro realizado com sucesso: </strong><span id="successMsg"></span>
+            </div>
+    
+            <div class="mensagemErro" id="divErrorMsg">
+                <strong>A operação não pode ser realizada: </strong><span id="errorMsg"></span>
+            </div>
         </article>
 
 
