@@ -60,21 +60,21 @@
 				<span class="fa fa-heartbeat"></span>
 				Quem somos
 			</h2>
-			<h3 class="cartao__subtitulo">Missão</h3>
-			<p>Levar a população um atendimento de qualidade e com boa infraestrutura.</p>
+			<h3 id="missao" class="cartao__subtitulo brilhaSlide">Missão</h3>
+			<p id="slidemissao">Levar a população um atendimento de qualidade e com boa infraestrutura.</p>
 
 
-			<h3 class="cartao__subtitulo">Valores</h3>
-
-			<ul>
+			<h3 id ="valores" class="cartao__subtitulo brilhaSlide">Valores</h3>
+			<ul id = "slidevalores">
+				<li>Qualidade</li>
 				<li>Compromisso</li>
 				<li>Atenção</li>
 				<li>Amor pelo que faz</li>
-				<li>Qualidade</li>
+				
 			</ul>
 
-			<h3 class="cartao__subtitulo">Visão</h3>
-			<p>Ser reconhecida como clinica inovadora no cenário nacional.</p>
+			<h3 id="visao" class="cartao__subtitulo brilhaSlide">Visão</h3>
+			<p id="slidevisao">Ser reconhecida como clinica inovadora no cenário nacional.</p>
 
 		</article>
 

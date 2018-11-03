@@ -361,3 +361,8 @@ body {
 	 background-color: #d89898;
 	 outline: none;
 }
+
+.brilhaSlide:hover, .brilhaSlide:target {
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+	background-color: #67c56a;
+}

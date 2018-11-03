@@ -15,6 +15,7 @@ $(() => {
 		$(".cartao_pag_" + mostra).addClass("cartao_visivel");
 	});
 
+
 	/**
 	 * Carregamento da galeria
 	 */
@@ -75,6 +76,28 @@ $(() => {
 	 * Footer
 	 */
 	$(".footer").text(`\u00A9 ${(new Date()).getFullYear()} Zika-PET`);
+
+	// Inicializa oculto (Professor pediu)
+	$("#slidevalores").hide();
+	$("#slidemissao").hide();
+	$("#slidevisao").hide();
+
+	$(document).ready(function(){
+		$("#valores").click(function(){
+		$("#slidevalores").slideToggle(300);
+		});
+	});
+	$(document).ready(function(){
+		$("#missao").click(function(){
+		$("#slidemissao").slideToggle(300);
+		});
+	});
+	$(document).ready(function(){
+		$("#visao").click(function(){
+		$("#slidevisao").slideToggle(300);
+		});
+	});
+	   
 
 });
 
