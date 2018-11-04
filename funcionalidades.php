@@ -1,6 +1,7 @@
-
 <?php
+require "./php/conexaoBanco.php";
 require "./php/lista_contato.php";
+require "./php/lista_funcionario.php";
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -71,188 +72,36 @@ require "./php/lista_contato.php";
                 </thead>
                 <!-- EMMET: tbody>tr*20>td{Nome $}+td{M}+td{Cargo $}+td{87436$}+td{Logradouro $}+td{Bairro $}+td{Cidade $} -->
                 <tbody>
+                <?php
+
+                if ($arrayFuncionarios != "")
+                {
+
+                    foreach ($arrayFuncionarios as $funcionario)
+                    {       
+                    echo "
                     <tr>
-                        <td>Nome 1</td>
-                        <td>M</td>
-                        <td>Cargo 1</td>
-                        <td>874361</td>
-                        <td>Logradouro 1</td>
-                        <td>Bairro 1</td>
-                        <td>Cidade 1</td>
-                    </tr>
-                    <tr>
-                        <td>Nome 2</td>
-                        <td>M</td>
-                        <td>Cargo 2</td>
-                        <td>874362</td>
-                        <td>Logradouro 2</td>
-                        <td>Bairro 2</td>
-                        <td>Cidade 2</td>
-                    </tr>
-                    <tr>
-                        <td>Nome 3</td>
-                        <td>M</td>
-                        <td>Cargo 3</td>
-                        <td>874363</td>
-                        <td>Logradouro 3</td>
-                        <td>Bairro 3</td>
-                        <td>Cidade 3</td>
-                    </tr>
-                    <tr>
-                        <td>Nome 4</td>
-                        <td>M</td>
-                        <td>Cargo 4</td>
-                        <td>874364</td>
-                        <td>Logradouro 4</td>
-                        <td>Bairro 4</td>
-                        <td>Cidade 4</td>
-                    </tr>
-                    <tr>
-                        <td>Nome 5</td>
-                        <td>M</td>
-                        <td>Cargo 5</td>
-                        <td>874365</td>
-                        <td>Logradouro 5</td>
-                        <td>Bairro 5</td>
-                        <td>Cidade 5</td>
-                    </tr>
-                    <tr>
-                        <td>Nome 6</td>
-                        <td>M</td>
-                        <td>Cargo 6</td>
-                        <td>874366</td>
-                        <td>Logradouro 6</td>
-                        <td>Bairro 6</td>
-                        <td>Cidade 6</td>
-                    </tr>
-                    <tr>
-                        <td>Nome 7</td>
-                        <td>M</td>
-                        <td>Cargo 7</td>
-                        <td>874367</td>
-                        <td>Logradouro 7</td>
-                        <td>Bairro 7</td>
-                        <td>Cidade 7</td>
-                    </tr>
-                    <tr>
-                        <td>Nome 8</td>
-                        <td>M</td>
-                        <td>Cargo 8</td>
-                        <td>874368</td>
-                        <td>Logradouro 8</td>
-                        <td>Bairro 8</td>
-                        <td>Cidade 8</td>
-                    </tr>
-                    <tr>
-                        <td>Nome 9</td>
-                        <td>M</td>
-                        <td>Cargo 9</td>
-                        <td>874369</td>
-                        <td>Logradouro 9</td>
-                        <td>Bairro 9</td>
-                        <td>Cidade 9</td>
-                    </tr>
-                    <tr>
-                        <td>Nome 10</td>
-                        <td>M</td>
-                        <td>Cargo 10</td>
-                        <td>8743610</td>
-                        <td>Logradouro 10</td>
-                        <td>Bairro 10</td>
-                        <td>Cidade 10</td>
-                    </tr>
-                    <tr>
-                        <td>Nome 11</td>
-                        <td>M</td>
-                        <td>Cargo 11</td>
-                        <td>8743611</td>
-                        <td>Logradouro 11</td>
-                        <td>Bairro 11</td>
-                        <td>Cidade 11</td>
-                    </tr>
-                    <tr>
-                        <td>Nome 12</td>
-                        <td>M</td>
-                        <td>Cargo 12</td>
-                        <td>8743612</td>
-                        <td>Logradouro 12</td>
-                        <td>Bairro 12</td>
-                        <td>Cidade 12</td>
-                    </tr>
-                    <tr>
-                        <td>Nome 13</td>
-                        <td>M</td>
-                        <td>Cargo 13</td>
-                        <td>8743613</td>
-                        <td>Logradouro 13</td>
-                        <td>Bairro 13</td>
-                        <td>Cidade 13</td>
-                    </tr>
-                    <tr>
-                        <td>Nome 14</td>
-                        <td>M</td>
-                        <td>Cargo 14</td>
-                        <td>8743614</td>
-                        <td>Logradouro 14</td>
-                        <td>Bairro 14</td>
-                        <td>Cidade 14</td>
-                    </tr>
-                    <tr>
-                        <td>Nome 15</td>
-                        <td>M</td>
-                        <td>Cargo 15</td>
-                        <td>8743615</td>
-                        <td>Logradouro 15</td>
-                        <td>Bairro 15</td>
-                        <td>Cidade 15</td>
-                    </tr>
-                    <tr>
-                        <td>Nome 16</td>
-                        <td>M</td>
-                        <td>Cargo 16</td>
-                        <td>8743616</td>
-                        <td>Logradouro 16</td>
-                        <td>Bairro 16</td>
-                        <td>Cidade 16</td>
-                    </tr>
-                    <tr>
-                        <td>Nome 17</td>
-                        <td>M</td>
-                        <td>Cargo 17</td>
-                        <td>8743617</td>
-                        <td>Logradouro 17</td>
-                        <td>Bairro 17</td>
-                        <td>Cidade 17</td>
-                    </tr>
-                    <tr>
-                        <td>Nome 18</td>
-                        <td>M</td>
-                        <td>Cargo 18</td>
-                        <td>8743618</td>
-                        <td>Logradouro 18</td>
-                        <td>Bairro 18</td>
-                        <td>Cidade 18</td>
-                    </tr>
-                    <tr>
-                        <td>Nome 19</td>
-                        <td>M</td>
-                        <td>Cargo 19</td>
-                        <td>8743619</td>
-                        <td>Logradouro 19</td>
-                        <td>Bairro 19</td>
-                        <td>Cidade 19</td>
-                    </tr>
-                    <tr>
-                        <td>Nome 20</td>
-                        <td>M</td>
-                        <td>Cargo 20</td>
-                        <td>8743620</td>
-                        <td>Logradouro 20</td>
-                        <td>Bairro 20</td>
-                        <td>Cidade 20</td>
-                    </tr>
+                        <td>$funcionario->nome</td>
+                        <td>$funcionario->sexo</td>
+                        <td>$funcionario->cargo</td>
+                        <td>$funcionario->rg</td>
+                        <td>$funcionario->lougradoro</td>
+                        <td>$funcionario->bairro</td>
+                        <td>$funcionario->cidade</td>
+                    </tr>      
+                    ";
+                    }
+                }
+                ?>    
                 </tbody>
             </table>
+            <?php
+
+            if ($msgErro != "")
+            echo "<p class='r'>A operação não pode ser realizada: $msgErro</p>";
+            ?>
+ 
+
         </article>
 
         <!-- Listagem de Agendamentos de clientes -->

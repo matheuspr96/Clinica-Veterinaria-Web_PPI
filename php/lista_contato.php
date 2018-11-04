@@ -1,5 +1,4 @@
 <?php
-require "conexaoBanco.php";
 
 class Contato 
 {
