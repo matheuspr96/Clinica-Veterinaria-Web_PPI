@@ -44,6 +44,7 @@ function getContato($conn)
     $arrayContato[] = $contato;
   }
   
+  
   return $arrayContato;
 }
 
