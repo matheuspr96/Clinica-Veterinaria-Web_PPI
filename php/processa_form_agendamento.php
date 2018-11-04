@@ -21,17 +21,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 		// Define e inicializa as variáveis
 			$especialidade = $medico = $data = $horario = $nome = $telefone = "";
 
-				$especialidade 		= filtraEntrada($_POST["agendamento__especialidade"]);
+				$especialidade 			= filtraEntrada($_POST["agendamento__especialidade"]);
         $medicoID 		    	= filtraEntrada($_POST["agendamento__medico"]);
 
-        $data		       		= strtotime($_POST["agendamento__consulta"]);
-        $newformat        = date('Y-m-d',$data);
+        $data		       			= strtotime($_POST["agendamento__consulta"]);
+        $newformat       	 = date('Y-m-d',$data);
 
-        $horario 	        = strtotime($_POST["agendamento__horario"]);
-        $horarioformat    = date("H:i:s",$horario);    
+        $horario 	       	 = strtotime($_POST["agendamento__horario"]);
+        $horarioformat    	= date("H:i:s",$horario);    
 
-        $nome           	= filtraEntrada($_POST["agendamento__nome"]);
-				$telefone 	      = filtraEntrada($_POST["agendamento__telefone"]);
+        $nome           		= filtraEntrada($_POST["agendamento__nome"]);
+				$telefone 	     	 = filtraEntrada($_POST["agendamento__telefone"]);
 				
 
 		if ($especialidade == "")
@@ -47,8 +47,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 		//GET COD MEDICO
 
 
-
-			
 		//INSERE 
 		$conn = conectaMySQL();
 
@@ -140,9 +138,8 @@ try
 	$conn = conectaMySQL();
 	$nome = $medicoID;
 	$id = getCodMedico($conn,$nome);  
-	if($id == "" || $id == 0)
+	if(empty($id))
 		throw new Exception("Nao encontrado");
-	
 }
 catch (Exception $e)
 {

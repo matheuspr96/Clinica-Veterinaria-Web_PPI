@@ -123,17 +123,17 @@
 			<h1 class="cartao__titulo">Agendamento</h1><br>
 			<form  id = "formCadastroAgendamento" class="form">
 				<label class="form__label">Especialidade</label><br>
-				<select class="form__select" name="agendamento__especialidade" id="agendamento__especialidade">
-					<option value="oftamologia">Oftamologia</option>
-					<option value="neurologia">Neurologia</option>
-					<option value="circurgia">Circurgia</option>
+				<select class="form__select" name="agendamento__especialidade" id="agendamento__especialidade" onchange="buscaMedico(this.value);">
+					<option value="Neurologista">Neurologista</option>
+                    <option value="Oftamologista">Oftamologista</option>
+                    <option value="Cirurgiao">Cirurgião</option>
+                    <option value="Veterinariogeral">Veterinário geral</option>
+                    <option value="Enfermeiro">Enfermeiro</option>
 				</select><br><br>
 
 				<label class="form__label">Médico</label><br>
 				<select class="form__select" name="agendamento__medico" id="agendamento__medico">
-					<option value="alice">Alice</option>
-					<option value="bob">Bob</option>
-					<option value="clarice">Claríce</option>
+				<!-- dynamic -->
 				</select><br><br>
 
 				<label for="consulta" class="form__label">Data consulta</label><br>

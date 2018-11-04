@@ -279,10 +279,11 @@ require "./php/lista_funcionario.php";
                     <div class="col-4">
                         <label for="esp__medica">Especialidade Medica</label><br>
                         <select name="esp__medica" id="esp__medica" class="form__select">
-                            <option value="médico">Médico</option>
-                            <option value="enfermeiro">Enfermeiro</option>
-                            <option value="secretario">Secretário</option>
-                            <option value="médico">Outro</option>
+                            <option value="Neurologista">Neurologista</option>
+                            <option value="Oftamologista">Oftamologista</option>
+                            <option value="Cirurgiao">Cirurgião</option>
+                            <option value="Veterinariogeral">Veterinário geral</option>
+                            <option value="Enfermeiro">Enfermeiro</option>
                         </select>
                     </div>
                 </div>
