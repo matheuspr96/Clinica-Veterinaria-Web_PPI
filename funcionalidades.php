@@ -1,3 +1,7 @@
+
+<?php
+require "./php/lista_contato.php";
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -526,128 +530,33 @@
                 </thead>
                 <!-- EMMET: tbody>tr*20>td{Nome $}+td{email@domain.tld}+td{Motivo $}+td>lorem5 -->
                 <tbody>
+	            <?php
+	
+                if ($arrayContato != "")
+                {
+                    foreach ($arrayContato as $contato)
+                    {       
+                    echo "
                     <tr>
-                        <td>Nome 1</td>
-                        <td>email@domain.tld</td>
-                        <td>Motivo 1</td>
-                        <td>Lorem ipsum dolor sit amet.</td>
-                    </tr>
-                    <tr>
-                        <td>Nome 2</td>
-                        <td>email@domain.tld</td>
-                        <td>Motivo 2</td>
-                        <td>Enim vero natus hic nulla.</td>
-                    </tr>
-                    <tr>
-                        <td>Nome 3</td>
-                        <td>email@domain.tld</td>
-                        <td>Motivo 3</td>
-                        <td>Cupiditate quae laborum mollitia ad.</td>
-                    </tr>
-                    <tr>
-                        <td>Nome 4</td>
-                        <td>email@domain.tld</td>
-                        <td>Motivo 4</td>
-                        <td>Quibusdam corrupti dignissimos vel debitis.</td>
-                    </tr>
-                    <tr>
-                        <td>Nome 5</td>
-                        <td>email@domain.tld</td>
-                        <td>Motivo 5</td>
-                        <td>Dolores, dolorem placeat. Quasi, inventore!</td>
-                    </tr>
-                    <tr>
-                        <td>Nome 6</td>
-                        <td>email@domain.tld</td>
-                        <td>Motivo 6</td>
-                        <td>Pariatur et qui nesciunt voluptates!</td>
-                    </tr>
-                    <tr>
-                        <td>Nome 7</td>
-                        <td>email@domain.tld</td>
-                        <td>Motivo 7</td>
-                        <td>Beatae quas pariatur quam incidunt.</td>
-                    </tr>
-                    <tr>
-                        <td>Nome 8</td>
-                        <td>email@domain.tld</td>
-                        <td>Motivo 8</td>
-                        <td>Suscipit reiciendis quos voluptatibus voluptate.</td>
-                    </tr>
-                    <tr>
-                        <td>Nome 9</td>
-                        <td>email@domain.tld</td>
-                        <td>Motivo 9</td>
-                        <td>Laborum, modi aliquid. Error, iure!</td>
-                    </tr>
-                    <tr>
-                        <td>Nome 10</td>
-                        <td>email@domain.tld</td>
-                        <td>Motivo 10</td>
-                        <td>Corporis beatae consequatur nam esse.</td>
-                    </tr>
-                    <tr>
-                        <td>Nome 11</td>
-                        <td>email@domain.tld</td>
-                        <td>Motivo 11</td>
-                        <td>Qui alias quis minima ullam?</td>
-                    </tr>
-                    <tr>
-                        <td>Nome 12</td>
-                        <td>email@domain.tld</td>
-                        <td>Motivo 12</td>
-                        <td>Dolor non perspiciatis modi vitae!</td>
-                    </tr>
-                    <tr>
-                        <td>Nome 13</td>
-                        <td>email@domain.tld</td>
-                        <td>Motivo 13</td>
-                        <td>Nobis consectetur quae natus esse!</td>
-                    </tr>
-                    <tr>
-                        <td>Nome 14</td>
-                        <td>email@domain.tld</td>
-                        <td>Motivo 14</td>
-                        <td>Illum explicabo tempore aspernatur culpa?</td>
-                    </tr>
-                    <tr>
-                        <td>Nome 15</td>
-                        <td>email@domain.tld</td>
-                        <td>Motivo 15</td>
-                        <td>Culpa quam neque dicta necessitatibus?</td>
-                    </tr>
-                    <tr>
-                        <td>Nome 16</td>
-                        <td>email@domain.tld</td>
-                        <td>Motivo 16</td>
-                        <td>Maxime deleniti natus necessitatibus. Sequi!</td>
-                    </tr>
-                    <tr>
-                        <td>Nome 17</td>
-                        <td>email@domain.tld</td>
-                        <td>Motivo 17</td>
-                        <td>Odit tempore et iusto eum!</td>
-                    </tr>
-                    <tr>
-                        <td>Nome 18</td>
-                        <td>email@domain.tld</td>
-                        <td>Motivo 18</td>
-                        <td>Culpa, quod. Eos, nulla vel.</td>
-                    </tr>
-                    <tr>
-                        <td>Nome 19</td>
-                        <td>email@domain.tld</td>
-                        <td>Motivo 19</td>
-                        <td>Illum consectetur minus veniam sapiente.</td>
-                    </tr>
-                    <tr>
-                        <td>Nome 20</td>
-                        <td>email@domain.tld</td>
-                        <td>Motivo 20</td>
-                        <td>Placeat nemo suscipit ab vitae?</td>
-                    </tr>
-                </tbody>
-            </table>
+                        <td>$contato->nome</td>
+                        <td>$contato->email</td>
+                        <td>$contato->motivo</td>
+                        <td>$contato->mensagem</td>
+                    </tr>      
+                    ";
+                    }
+                }
+		
+		?>    
+		
+        </tbody>
+    </table>
+  
+    <?php
+        if ($msgErro != "")
+        echo "<p class=''>A operação não pode ser realizada: $msgErro</p>";
+ 
+    ?>
         </article>
 
         <footer class="footer"></footer>
