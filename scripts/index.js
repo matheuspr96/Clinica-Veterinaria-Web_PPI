@@ -202,7 +202,7 @@ $(() => {
 	{
 	  $.ajax({
   
-		url: './php/processa_banco_agendamento.php',
+		url: './php/processa_medico_agendamento.php',
 		type: 'POST',
 		async: true,
 		dataType: 'json',

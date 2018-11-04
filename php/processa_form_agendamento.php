@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 			$especialidade = $medico = $data = $horario = $nome = $telefone = "";
 
 				$especialidade 			= filtraEntrada($_POST["agendamento__especialidade"]);
-        $medicoID 		    	= filtraEntrada($_POST["agendamento__medico"]);
+				$medicoCod  	      = filtraEntrada($_POST["agendamento__medico"]);
 
         $data		       			= strtotime($_POST["agendamento__consulta"]);
         $newformat       	 = date('Y-m-d',$data);
@@ -36,6 +36,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 
 		if ($especialidade == "")
 			throw new Exception("A especialidade deve ser fornecida");
+		if ( $medicoCod == "")
+			throw new Exception("O médico deve ser fornecido: ");
 		if ($newformat == "")
 			throw new Exception("A data do agendamento deve ser fornecida");
 		if ($horarioformat == "")
@@ -44,12 +46,37 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 			throw new Exception("O nome deve ser fornecido");
 		if ($telefone == "")
 			throw new Exception("O contato deve ser fornecido");
-		//GET COD MEDICO
 
-
-		//INSERE 
 		$conn = conectaMySQL();
 
+		//GET COD MEDICO
+		/*$codigoMedico = "";
+
+		//Codigo de entrada correto
+		$sqlbusca = "
+			SELECT IDFUNCIONARIO 
+			FROM FUNCIONARIO
+			WHERE IDFUNCIONARIO = (?)
+		";
+	
+		// Prepara a consulta
+		if (! $stmtB = $conn->prepare($sqlbusca))
+			throw new Exception("Falha na operacao prepare: " . $conn->error);
+			
+			if (! $stmtB->bind_param("s", $medicoCod))
+			throw new Exception("Falha na operacao bind_param: " . $stmtB->error);
+				
+		// Executa a consulta
+		if (! $stmtB->execute())
+			throw new Exception("Falha na operacao execute: " . $stmtB->error);
+	
+		// Indica as variáveis PHP que receberão os resultados
+		if (! $stmtB->bind_result($codigoMedico))
+			throw new Exception("Falha na operacao bind_result: " . $stmtB->error);
+			$stmtB->close(); */
+
+		
+		//INSERE NA TABELA PACIENTE
 		$sql = "
 			INSERT INTO PACIENTE (IDPACIENTE, NOME, TELEFONE)
 		   VALUES (null, ?, ?);
@@ -67,6 +94,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
       throw new Exception("Falha na operacao execute: " . $stmt->error);
 			$stmt->close();
 
+
+		// INSERE NA TABELA AGENDA
 		$sql2 = "
 			INSERT INTO AGENDA (IDAGENDA, DATAAGENDA, HORA, ID_FUNCIONARIO, ID_PACIENTE)
 			VALUES(null, ?, ?, ?, ?);
@@ -78,7 +107,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
               
       // Faz a ligação dos parâmetros em aberto com os valores.
     if (! $stmt2->bind_param("ssii",
-      $newformat, $horarioformat, getCodMedico($conn, $medicoID), mysqli_insert_id($conn)))
+      $newformat, $horarioformat, $medicoCod, mysqli_insert_id($conn)))
         throw new Exception("Falha na operacao bind_param: " . $stmt2->error);
           
       if (! $stmt2->execute())
@@ -103,47 +132,4 @@ function filtraEntrada($dado)
 
 	return $dado;
 }
-
-function getCodMedico($conn,$medicoID)
-{
-	$id = "";
-	$msgErro = "";
-
-  $arrayContato = "";
-  $SQL = "
-    SELECT IDFUNCIONARIO 
-		FROM FUNCIONARIO
-		WHERE NOME = '$nome'
-  ";
-  
-  // Prepara a consulta
-  if (! $stmt = $conn->prepare($SQL))
-    throw new Exception("Falha na operacao prepare: " . $conn->error);
-      
-  // Executa a consulta
-  if (! $stmt->execute())
-    throw new Exception("Falha na operacao execute: " . $stmt->error);
-
-  // Indica as variáveis PHP que receberão os resultados
-  if (! $stmt->bind_result($id))
-    throw new Exception("Falha na operacao bind_result: " . $stmt->error);    
-  
-  // Navega pelas linhas do resultado
-  
-  $stmt->close();
-  return $id;
-}
-try
-{
-	$conn = conectaMySQL();
-	$nome = $medicoID;
-	$id = getCodMedico($conn,$nome);  
-	if(empty($id))
-		throw new Exception("Nao encontrado");
-}
-catch (Exception $e)
-{
-  $msgErro = $e->getMessage();
-}
-
 ?>
