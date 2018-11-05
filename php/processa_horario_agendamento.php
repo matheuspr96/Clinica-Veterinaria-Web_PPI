@@ -1,10 +1,4 @@
 <?php
-class horaConsulta
-{
-    public $idhr;
-    public $valuehr;
-}
-
 try
 { 
     /*Quando o nome do médico for selecionado pelo usuário, uma requisição AJAX
@@ -31,7 +25,7 @@ try
     $sql = "
         SELECT IDAGENDA, HORA
         FROM   AGENDA
-        WHERE  ID_FUNCIONARIO = (?) AND DATAAGENDA = ?;;
+        WHERE  ID_FUNCIONARIO = (?) AND DATAAGENDA = ?;
     ";
 
 // Prepara a consulta
@@ -53,12 +47,8 @@ if (! $stmt->bind_result($idHora, $hora))
 $horaformartbanco = date();
 while ($stmt->fetch())
 {
-    $consulta = new horaConsulta();
 
-    $consulta->idhr        = $idHora;
-    $consulta->valuehr      = $hora;
- 
-    $arrayHora[] = $consulta;
+    $arrayHora[] = $hora;
 }
     
 $jsonStr = json_encode($arrayHora);
