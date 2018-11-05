@@ -13,11 +13,17 @@ $(() => {
 		$(`.barra-topo__item[data-mostra="${mostra}"]`).addClass("barra-topo__item_selecionado");
 		// Mostra cartao desejado
 		$(".cartao_pag_" + mostra).addClass("cartao_visivel");
+		// Seta hash
+		location.hash = mostra;
     });
 	
 	$(".redir-home").click(e => {
 		window.location = "/";
 	});
+
+	// Mostrar guia do location hash
+	let guia = location.hash.split("#")[1];
+	$(`[data-mostra=${guia}]`).click();
 
 	/**
 	 * Menu

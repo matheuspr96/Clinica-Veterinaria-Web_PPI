@@ -15,7 +15,7 @@
 	<!-- Barra do topo -->
 	<nav class="barra-topo">
 		<ul class="barra-topo__lista">
-			<li class="barra-topo__item barra-topo__item_nome">Zika-PET</li>
+			<li class="barra-topo__item barra-topo__item_nome" onclick="#">Zika-PET</li>
 			<li class="barra-topo__item barra-topo__item_botao">
 				<button class="barra-topo__botao botao mostra-login">Login</button>
 			</li>
