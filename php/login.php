@@ -1,44 +1,44 @@
 <?php 
-require "conexaoBanco.php";
+    require "conexaoBanco.php";
+    
+    if($_SERVER["REQUEST_METHOD"] == "POST"){
+        try{
+            $msgErro = "";
+            $user = isset($_POST["login__login"]) ? (trim($_POST["login__login"])) : FALSE;
+            $password = isset($_POST["login__senha"])  ? (trim($_POST["login__senha"])) : FALSE;
 
-if(empty($_POST['login__login']) || empty($_POST['login__senha'])){
-    header('Location: index.php');
-}
+            if(!$user || !$password){
+                echo "Voce deve digitar sua senha e login";
+                exit();
+            }
+            
+            $conn = conectaMySQL();
+            $sql = "
+                    SELECT * 
+                    FROM LOGIN
+                    WHERE `USERNAME` = '$user' AND `PASSWORD` = '$password'
+                    ";
 
-$user = filtraEntrada($_POST['login__login']);
-$password = filtraEntrada($_POST['login__senha']);
+            $result = mysqli_query($conn,$sql);
+	        if (! $result)
+		        throw new Exception('Ocorreu uma falha ao gerar o relatorio de testes: ' . $conn->error);
 
-$conn = conectaMySQL();
-
-$query = "SELECT * FROM LOGIN WHERE `USERNAME` = '$user' AND `PASSWORD` = '$password'";
-
-// prepara a declaração SQL (stmt é uma abreviação de statement)
-if (! $stmt = $conn->prepare($sql))
-throw new Exception("Falha na operacao prepare: " . $conn->error);
-      
-// Faz a ligação dos parâmetros em aberto com os valores.
-if (! $stmt->bind_param("ssssss", $especialidade, $medico, $newformat, $horarioformat, $nome, $telefone))
-throw new Exception("Falha na operacao bind_param: " . $stmt->error);
-  
-if (! $stmt->execute())
-throw new Exception("Falha na operacao execute: " . $stmt->error);
-
-if($stmt == 1){
-    header('Location: funcionalidades.php');
-    exit();
-}else{
-    header('Location: index.php');
-}
+            if($result->num_rows > 0){
+                    header('Location:http://zikapet.atwebpages.com/funcionalidades.php');
+            }else{
+                    header('Location:http://zikapet.atwebpages.com/index.php');
+            }
+            
+        }
+        catch(Exception $e){
+            http_response_code(400); 
+		    $msgErro = $e->getMessage();
+		    echo $msgErro;  
+        }
 
 
-function filtraEntrada($dado) 
-{
-	$dado = trim($dado);               // remove espaços no inicio e no final da string
-	$dado = stripslashes($dado);       // remove contra barras: "cobra d\'agua" vira "cobra d'agua"
-	$dado = htmlspecialchars($dado);   // caracteres especiais do HTML (como < e >) são codificados
 
-	return $dado;
-}
+    }
 
 ?>
 
