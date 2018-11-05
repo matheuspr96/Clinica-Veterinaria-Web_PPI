@@ -30,8 +30,8 @@ try
 
     $sql = "
         SELECT IDAGENDA, HORA
-        FROM AGENDA
-        WHERE  ID_FUNCIONARIO = (?);
+        FROM   AGENDA
+        WHERE  ID_FUNCIONARIO = (?) AND DATAAGENDA = ?;;
     ";
 
 // Prepara a consulta

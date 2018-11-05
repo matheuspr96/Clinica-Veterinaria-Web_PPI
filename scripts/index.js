@@ -226,30 +226,31 @@ $(() => {
 		url: './php/processa_medico_agendamento.php',
 		type: 'POST',
 		async: true,
-		dataType: 'json',       
-  
-		success: function(result) {
-			console.log(result)
-		if (result != "")
-		{         
+		dataType: 'json',
 
+		success: result => {
+			if(!result) return alert("Sem horários disponíveis pra essa data");
+
+			const INICIO = 7,
+				  FINAL  = 18;
+			
 			$("#agendamento__horario").empty();
-			for(x in result){		 
-		  	var campoSelect = document.getElementById("#agendamento__horario");
-			var option = document.createElement("option");
-			option.value = result[x].valuehr;
-			option.text = result[x].valuehr;
-			campoSelect.add(option);
-			}	
-		}
-		else{
-			$("#agendamento__horario").empty();
-			alert("Não existe horário para a especialidade selecionada");
-		}
+
+			new Array(FINAL - INICIO + 1)
+					.fill()
+					.map((_a, i) => INICIO + i)
+					.filter(h => !result.includes(h))
+					.forEach(h => {
+						let op = document.createElement("option");
+						op.innerText = (h < 10 ? "0" + h : h) + ":00";
+
+						$("#agendamento__horario").appendChild(op);
+					});
 		},
-		
-			error: function(xhr, status, error) {
-		   alert(status + error + xhr.responseText);
+
+		error: error => {
+			alert("Algo deu errado!");
+			console.error(error);
 		}
   
 	  });  
