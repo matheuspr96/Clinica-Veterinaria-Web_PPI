@@ -13,13 +13,18 @@ $(() => {
 		$(`.barra-topo__item[data-mostra="${mostra}"]`).addClass("barra-topo__item_selecionado");
 		// Mostra cartao desejado
 		$(".cartao_pag_" + mostra).addClass("cartao_visivel");
+		// Seta hash
+		location.hash = mostra;
 	});
 
+	// Mostrar guia do location hash
+	let guia = location.hash.split("#")[1];
+	$(`[data-mostra=${guia}]`).click();
 
 	/**
 	 * Carregamento da galeria
 	 */
-	$("[data-mostra=\"galeria\"]").click(e => {
+	$("[data-mostra=\"galeria\"]").click(_e => {
 		// Evitando que imagens sejam adicionadas duas vezes
 		if(isGaleriaCarregada) return;
 		isGaleriaCarregada = true;
@@ -55,10 +60,10 @@ $(() => {
 	/**
 	 * Botao de login que lança o MODAL
 	 */
-	$(".mostra-login").click(e => $("#login-dialog").toggleClass("dialog_escondido"));
+	$(".mostra-login").click(_e => $("#login-dialog").toggleClass("dialog_escondido"));
 
 	// Botão de entrar
-	$("#botao-login").click(e => {
+	$("#botao-login").click(_e => {
 		window.location = "./funcionalidades.html";
 	});
 
@@ -70,7 +75,7 @@ $(() => {
 	/**
 	 * Menu
 	 */
-    $("#abre-menu, .menu__fechar, .menu__fundo, .menu__item").click(e => $(".menu").toggleClass("menu_escondido"));
+    $("#abre-menu, .menu__fechar, .menu__fundo, .menu__item").click(_e => $(".menu").toggleClass("menu_escondido"));
 
 	/**
 	 * Footer
@@ -78,10 +83,7 @@ $(() => {
 	$(".footer").text(`\u00A9 ${(new Date()).getFullYear()} Zika-PET`);
 
 	// Inicializa oculto (Professor pediu)
-	["valores", "missao", "visao"].forEach(s => {
-		$(`#slide${s}`).hide();
-		$(`#${s}`).click(()   => $(`#slide${s}`).slideToggle(300));
-	});
+	$(".cartao__subtitulo").click(e => $(e.target).toggleClass("cartao__subtitulo_ativo"));
 });
 
 	/* Ajax forms */
@@ -119,7 +121,7 @@ $(() => {
 					showMessageError(result);
 			},
 
-			error: function (xhr, status, error) {
+			error: function (xhr, _status, _error) {
 
 				var errorMsg = xhr.responseText;
 				document.getElementById("errorMsg").innerText = errorMsg;
@@ -156,12 +158,16 @@ $(() => {
 					document.getElementById("btnCadastraAgendamento").disabled = false;
 					document.getElementById("formCadastroAgendamento").reset(); 
 				}
-				else
-				showMessageErrorAg(result);
+				else {
+					console.error(result);
+					showMessageErrorAg(result);
+				}
 			},
 
-			error: function (xhr, status, error) {
+			error: function (xhr, _status, _error) {
 				var errorMsg = xhr.responseText;
+				if(errorMsg.includes('Duplicate entry'))
+					errorMsg = ": Horário indisponível, selecione outro";
 				document.getElementById("errorMsgAg").innerText = errorMsg;
 				$("#divErrorMsgAg").fadeIn(200);
 				document.getElementById("btnCadastraAgendamento").disabled = false;
@@ -181,8 +187,10 @@ $(() => {
 		$("#divErrorMsgAg").fadeIn(200);
 	}	
 
-	function buscaMedico(agendamento__especialidade)
+	function buscaMedico(el)
 	{
+	  let agendamento__especialidade = el.value;
+	  el.firstElementChild.disabled = true;
 	  $.ajax({
   
 		url: './php/processa_medico_agendamento.php',
@@ -197,12 +205,14 @@ $(() => {
 		{         
 
 			$("#agendamento__medico").empty();
-			for(x in result){		 
-		  	var campoSelect = document.getElementById("agendamento__medico");
-			var option = document.createElement("option");
-			option.value = result[x].idvet;
-			option.text = result[x].nomevet;
-			campoSelect.add(option);
+			let vet = [{idvet: "null", nomevet: "Selecione uma opção"}, ...result];
+			console.log(vet);
+			for(let x of vet){		 
+				var campoSelect = document.getElementById("agendamento__medico");
+				var option = document.createElement("option");
+				option.value = x.idvet;
+				option.text = x.nomevet;
+				campoSelect.add(option);
 			}	
 		}
 		else{
@@ -222,11 +232,14 @@ $(() => {
 	function buscaHorario()
 	{
 	  $.ajax({
-  
 		url: './php/processa_horario_agendamento.php',
 		type: 'POST',
 		async: true,
 		dataType: 'json',
+		data: {
+			agendamento__medico: $("#agendamento__medico")[0].value,
+			agendamento__consulta: $("#agendamento__consulta")[0].value
+		},
 
 		success: result => {
 			if(!result) return alert("Sem horários disponíveis pra essa data");
@@ -243,8 +256,8 @@ $(() => {
 					.forEach(h => {
 						let op = document.createElement("option");
 						op.innerText = (h < 10 ? "0" + h : h) + ":00";
-
-						$("#agendamento__horario").appendChild(op);
+						op.value = h;
+						$("#agendamento__horario").append(op);
 					});
 		},
 

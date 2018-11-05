@@ -58,6 +58,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         $estadocivil	= filtraEntrada($_POST["estado__civil"]);
         $especialidade	= filtraEntrada($_POST["esp__medica"]);
 
+        if(strtotime($nascimento) >= strtotime(date("Y-m-d")))
+            throw new Exception("O nascimento deve ser no passado");
+
         $cpf =  $rg	= $titulo = "";
         $cpf	        = filtraEntrada($_POST["form__cpf"]);
         $rg	            = filtraEntrada($_POST["form__rg"]);

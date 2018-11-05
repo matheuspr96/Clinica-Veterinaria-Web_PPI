@@ -24,11 +24,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 				$especialidade 			= filtraEntrada($_POST["agendamento__especialidade"]);
 				$medicoCod  	      = filtraEntrada($_POST["agendamento__medico"]);
 
-        $data		       			= strtotime($_POST["agendamento__consulta"]);
+				$data		       			= strtotime($_POST["agendamento__consulta"]);
+
+				if ($data == "")
+					throw new Exception("A data do agendamento deve ser fornecida");
+
         $newformat       	  = date('Y-m-d',$data);
 
-        $horario 	       	  = strtotime($_POST["agendamento__horario"]);
-        $horarioformat    	= date("H:i:s",$horario);    
+        $horario 	       	  = filtraEntrada($_POST["agendamento__horario"]);  
 
         $nome           		= filtraEntrada($_POST["agendamento__nome"]);
 				$telefone 	     	  = filtraEntrada($_POST["agendamento__telefone"]);
@@ -40,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 			throw new Exception("O médico deve ser fornecido: ");
 		if ($newformat == "")
 			throw new Exception("A data do agendamento deve ser fornecida");
-		if ($horarioformat == "")
+		if ($horario == "")
 			throw new Exception("O horário de atendimento deve ser fornecido");
 		if ($nome == "")
 			throw new Exception("O nome deve ser fornecido");
@@ -80,7 +83,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
               
       // Faz a ligação dos parâmetros em aberto com os valores.
     if (! $stmt2->bind_param("ssii",
-      $newformat, $horarioformat, $medicoCod, mysqli_insert_id($conn)))
+      $newformat, $horario, $medicoCod, mysqli_insert_id($conn)))
         throw new Exception("Falha na operacao bind_param: " . $stmt2->error);
           
       if (! $stmt2->execute())
