@@ -123,7 +123,7 @@
 			<h1 class="cartao__titulo">Agendamento</h1><br>
 			<form  id = "formCadastroAgendamento" class="form">
 				<label class="form__label">Especialidade</label><br>
-				<select class="form__select" name="agendamento__especialidade" id="agendamento__especialidade">
+				<select class="form__select" name="agendamento__especialidade" id="agendamento__especialidade" onchange="searchDoctor();">
 					<option value="oftamologia">Oftamologia</option>
 					<option value="neurologia">Neurologia</option>
 					<option value="circurgia">Circurgia</option>
@@ -174,7 +174,7 @@
 		<div class="dialog__fundo"></div>
 		<div class="dialog__cartao cartao">
 			<h3 class="cartao__titulo">Login</h3>
-			<form action="#" method="POST" class="form">
+			<form action="php/login.php" method="POST" class="form">
 				<label for="login__login" class="form__label">Login</label><br>
 				<input type="text" name="login__login" id="login__login" class="form__text-field"><br><br>
 
