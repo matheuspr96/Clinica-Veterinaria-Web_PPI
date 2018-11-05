@@ -1,5 +1,5 @@
 <?php
-    define("HOST", "fdb22.awardspace.net"); 
+    define("HOST", "pdb33.awardspace.net"); 
     define("USER", "2837288_testebd");
     define("PASSWORD", "m32137552"); 
     define("DATABASE", "2837288_testebd");

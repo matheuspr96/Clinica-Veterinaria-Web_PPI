@@ -81,6 +81,12 @@
 		<article class="cartao cartao_pag_galeria">
 			<h2 class="cartao__titulo">Galeria</h2>
 			<div id="imagens"></div>
+			<iframe
+					class="video"
+					src="https://www.youtube.com/embed/bykaW0rEGsY"
+					allow="autoplay; encrypted-media"
+					allowfullscreen>
+			</iframe>
 		</article>
 
 		<article class="cartao cartao_pag_contato">
@@ -137,13 +143,11 @@
 				</select><br><br>
 
 				<label for="consulta" class="form__label">Data consulta</label><br>
-				<input type="date" name="agendamento__consulta" id="agendamento__consulta" class="form__text-field"><br><br>
+				<input type="date" name="agendamento__consulta" id="agendamento__consulta" class="form__text-field"  onchange="buscaHorario();"><br><br>
 
 				<label class="form__label">Horário</label><br>
 				<select class="form__select" name="agendamento__horario" id="agendamento__horario">
-					<option value="08:00:00">08:00</option>
-					<option value="14:00:00":>14:00</option>
-					<option value="19:00:00">19:00</option>
+				<!-- dynamic -->
 				</select><br><br>
 
 				<label for="agendamento__nome" class="form__label">Nome</label><br>
@@ -174,7 +178,7 @@
 		<div class="dialog__fundo"></div>
 		<div class="dialog__cartao cartao">
 			<h3 class="cartao__titulo">Login</h3>
-			<form action="#" method="POST" class="form">
+			<form action="./php/login.php" method="POST" class="form">
 				<label for="login__login" class="form__label">Login</label><br>
 				<input type="text" name="login__login" id="login__login" class="form__text-field"><br><br>
 

@@ -25,13 +25,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 				$medicoCod  	      = filtraEntrada($_POST["agendamento__medico"]);
 
         $data		       			= strtotime($_POST["agendamento__consulta"]);
-        $newformat       	 = date('Y-m-d',$data);
+        $newformat       	  = date('Y-m-d',$data);
 
-        $horario 	       	 = strtotime($_POST["agendamento__horario"]);
+        $horario 	       	  = strtotime($_POST["agendamento__horario"]);
         $horarioformat    	= date("H:i:s",$horario);    
 
         $nome           		= filtraEntrada($_POST["agendamento__nome"]);
-				$telefone 	     	 = filtraEntrada($_POST["agendamento__telefone"]);
+				$telefone 	     	  = filtraEntrada($_POST["agendamento__telefone"]);
 				
 
 		if ($especialidade == "")
@@ -49,33 +49,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 
 		$conn = conectaMySQL();
 
-		//GET COD MEDICO
-		/*$codigoMedico = "";
-
-		//Codigo de entrada correto
-		$sqlbusca = "
-			SELECT IDFUNCIONARIO 
-			FROM FUNCIONARIO
-			WHERE IDFUNCIONARIO = (?)
-		";
-	
-		// Prepara a consulta
-		if (! $stmtB = $conn->prepare($sqlbusca))
-			throw new Exception("Falha na operacao prepare: " . $conn->error);
-			
-			if (! $stmtB->bind_param("s", $medicoCod))
-			throw new Exception("Falha na operacao bind_param: " . $stmtB->error);
-				
-		// Executa a consulta
-		if (! $stmtB->execute())
-			throw new Exception("Falha na operacao execute: " . $stmtB->error);
-	
-		// Indica as variáveis PHP que receberão os resultados
-		if (! $stmtB->bind_result($codigoMedico))
-			throw new Exception("Falha na operacao bind_result: " . $stmtB->error);
-			$stmtB->close(); */
-
-		
 		//INSERE NA TABELA PACIENTE
 		$sql = "
 			INSERT INTO PACIENTE (IDPACIENTE, NOME, TELEFONE)

@@ -236,5 +236,44 @@ $(() => {
   
 	}
 
+	function buscaHorario()
+	{
+	  $.ajax({
+  
+		url: './php/processa_medico_agendamento.php',
+		type: 'POST',
+		async: true,
+		dataType: 'json',       
+  
+		success: function(result) {
+			console.log(result)
+		if (result != "")
+		{         
+
+			$("#agendamento__horario").empty();
+			for(x in result){		 
+		  	var campoSelect = document.getElementById("#agendamento__horario");
+			var option = document.createElement("option");
+			option.value = result[x].valuehr;
+			option.text = result[x].valuehr;
+			campoSelect.add(option);
+			}	
+		}
+		else{
+			$("#agendamento__horario").empty();
+			alert("Não existe horário para a especialidade selecionada");
+		}
+		},
+		
+			error: function(xhr, status, error) {
+		   alert(status + error + xhr.responseText);
+		}
+  
+	  });  
+  
+	}
+
+	
+
 
 
