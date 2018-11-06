@@ -15,7 +15,7 @@
 	<!-- Barra do topo -->
 	<nav class="barra-topo">
 		<ul class="barra-topo__lista">
-			<li class="barra-topo__item barra-topo__item_nome">Zika-PET</li>
+			<li class="barra-topo__item barra-topo__item_nome" onclick="#">Zika-PET</li>
 			<li class="barra-topo__item barra-topo__item_botao">
 				<button class="barra-topo__botao botao mostra-login">Login</button>
 			</li>
@@ -60,27 +60,32 @@
 				<span class="fa fa-heartbeat"></span>
 				Quem somos
 			</h2>
-			<h3 id="missao" class="cartao__subtitulo brilhaSlide">Missão</h3>
-			<p id="slidemissao">Levar a população um atendimento de qualidade e com boa infraestrutura.</p>
+			<h3 class="cartao__subtitulo">Missão</h3>
+			<p class="cartao__item">Levar a população um atendimento de qualidade e com boa infraestrutura.</p>
 
 
-			<h3 id ="valores" class="cartao__subtitulo brilhaSlide">Valores</h3>
-			<ul id = "slidevalores">
+			<h3 class="cartao__subtitulo">Valores</h3>
+			<ul class="cartao__item">
 				<li>Qualidade</li>
 				<li>Compromisso</li>
 				<li>Atenção</li>
 				<li>Amor pelo que faz</li>
-				
 			</ul>
 
-			<h3 id="visao" class="cartao__subtitulo brilhaSlide">Visão</h3>
-			<p id="slidevisao">Ser reconhecida como clinica inovadora no cenário nacional.</p>
+			<h3 class="cartao__subtitulo">Visão</h3>
+			<p class="cartao__item">Ser reconhecida como clinica inovadora no cenário nacional.</p>
 
 		</article>
 
 		<article class="cartao cartao_pag_galeria">
 			<h2 class="cartao__titulo">Galeria</h2>
 			<div id="imagens"></div>
+			<iframe
+					class="video"
+					src="https://www.youtube.com/embed/bykaW0rEGsY"
+					allow="autoplay; encrypted-media"
+					allowfullscreen>
+			</iframe>
 		</article>
 
 		<article class="cartao cartao_pag_contato">
@@ -123,27 +128,26 @@
 			<h1 class="cartao__titulo">Agendamento</h1><br>
 			<form  id = "formCadastroAgendamento" class="form">
 				<label class="form__label">Especialidade</label><br>
-				<select class="form__select" name="agendamento__especialidade" id="agendamento__especialidade" onchange="searchDoctor();">
-					<option value="oftamologia">Oftamologia</option>
-					<option value="neurologia">Neurologia</option>
-					<option value="circurgia">Circurgia</option>
+				<select class="form__select" name="agendamento__especialidade" id="agendamento__especialidade" onchange="buscaMedico(this);">
+					<option value="null">Selecione uma especialidade</option>
+					<option value="Neurologista">Neurologista</option>
+                    <option value="Oftamologista">Oftamologista</option>
+                    <option value="Cirurgiao">Cirurgião</option>
+                    <option value="Veterinariogeral">Veterinário geral</option>
+                    <option value="Enfermeiro">Enfermeiro</option>
 				</select><br><br>
 
 				<label class="form__label">Médico</label><br>
 				<select class="form__select" name="agendamento__medico" id="agendamento__medico">
-					<option value="alice">Alice</option>
-					<option value="bob">Bob</option>
-					<option value="clarice">Claríce</option>
+				<!-- dynamic -->
 				</select><br><br>
 
 				<label for="consulta" class="form__label">Data consulta</label><br>
-				<input type="date" name="agendamento__consulta" id="agendamento__consulta" class="form__text-field"><br><br>
+				<input type="date" name="agendamento__consulta" id="agendamento__consulta" class="form__text-field"  onchange="buscaHorario();"><br><br>
 
 				<label class="form__label">Horário</label><br>
 				<select class="form__select" name="agendamento__horario" id="agendamento__horario">
-					<option value="08:00:00">08:00</option>
-					<option value="14:00:00":>14:00</option>
-					<option value="19:00:00">19:00</option>
+				<!-- dynamic -->
 				</select><br><br>
 
 				<label for="agendamento__nome" class="form__label">Nome</label><br>
