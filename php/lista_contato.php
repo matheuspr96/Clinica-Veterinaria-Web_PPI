@@ -11,7 +11,7 @@
 
   function getContato($conn)
   {
-    $arrayContato = "";
+    $arrayContato = [];
     
     $SQL = "
       SELECT IDContato, Nome, Email, Motivo, Mensagem

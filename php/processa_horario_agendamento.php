@@ -15,6 +15,8 @@ try
     $medico = $_POST["agendamento__medico"];
 
     $data		       	= strtotime($_POST["agendamento__consulta"]);
+    if(($data) < strtotime(date("Y-m-d")))
+    throw new Exception("O data agendamento deve ser no futuro");
     $formatData       	 = date('Y-m-d',$data);
 
     $sql = "

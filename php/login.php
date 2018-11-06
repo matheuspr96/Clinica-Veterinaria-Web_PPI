@@ -1,33 +1,36 @@
 <?php 
-require "conexaoBanco.php";
-
-if(empty($_POST['login__login']) || empty($_POST['login__senha'])){
-    header('Location: index.php');
-}
-
-$user = filtraEntrada($_POST['login__login']);
-$password = filtraEntrada($_POST['login__senha']);
-
-$conn = conectaMySQL();
-
-$query = "SELECT * FROM LOGIN WHERE `USERNAME` = '$user' AND `PASSWORD` = '$password'";
-
-$result = mysqli_query($conn,$query);
-
-$row = mysqli_num_rows($result);
-
-echo $row;
-exit();
-
-
-function filtraEntrada($dado) 
-{
-	$dado = trim($dado);               // remove espaços no inicio e no final da string
-	$dado = stripslashes($dado);       // remove contra barras: "cobra d\'agua" vira "cobra d'agua"
-	$dado = htmlspecialchars($dado);   // caracteres especiais do HTML (como < e >) são codificados
-
-	return $dado;
-}
-
+    require "conexaoBanco.php";
+    
+    if($_SERVER["REQUEST_METHOD"] == "POST"){
+        try{
+            $msgErro = "";
+            $user = isset($_POST["login__login"]) ? (trim($_POST["login__login"])) : FALSE;
+            $password = isset($_POST["login__senha"])  ? (trim($_POST["login__senha"])) : FALSE;
+            if(!$user || !$password){
+                echo "Voce deve digitar sua senha e login";
+                exit();
+            }
+            
+            $conn = conectaMySQL();
+            $sql = "
+                    SELECT * 
+                    FROM LOGIN
+                    WHERE `USERNAME` = '$user' AND `PASSWORD` = '$password'
+                    ";
+            $result = mysqli_query($conn,$sql);
+	        if (! $result)
+		        throw new Exception('Ocorreu uma falha ao gerar o relatorio de testes: ' . $conn->error);
+            if($result->num_rows > 0){
+                    header('Location:http://zikapet.atwebpages.com/funcionalidades.php');
+            }else{
+                    header('Location:http://zikapet.atwebpages.com/index.php');
+            }
+            
+        }
+        catch(Exception $e){
+            http_response_code(400); 
+		    $msgErro = $e->getMessage();
+		    echo $msgErro;  
+        }
+    }
 ?>
-

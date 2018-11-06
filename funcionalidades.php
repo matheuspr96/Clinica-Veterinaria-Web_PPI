@@ -2,6 +2,8 @@
 require "./php/conexaoBanco.php";
 require "./php/lista_contato.php";
 require "./php/lista_funcionario.php";
+require "./php/busca_endereco.php";
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -308,7 +310,7 @@ require "./php/lista_funcionario.php";
                 <div class="row">
                     <div class="col-4">
                         <label for="form__cep">CEP</label><br>
-                        <input type="text" name="form__cep" id="form__cep" class="form__text-field">
+                        <input type="text" name="form__cep" id="form__cep" class="form__text-field" placeholder="xxxxx-xx" onkeyup="buscaEndereco(this.value);">
                     </div>
                     <div class="col-8"></div>
                 </div>

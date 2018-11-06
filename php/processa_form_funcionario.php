@@ -53,13 +53,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 		// Define e inicializa as variáveis
 		$nome = $nascimento = $sexo = $especialidade = $especialidade = "";
 		$nome 			= filtraEntrada($_POST["funcionario__nome"]);
-		$nascimento 	= filtraEntrada($_POST["funcionario__data"]);
+        $nascimento 	= strtotime($_POST["funcionario__data"]);
+        $newformat       = date('Y-m-d',$nascimento);
 		$sexo		    = filtraEntrada($_POST["funcionario__sexo"]);
         $estadocivil	= filtraEntrada($_POST["estado__civil"]);
         $especialidade	= filtraEntrada($_POST["esp__medica"]);
-
-        if(strtotime($nascimento) >= strtotime(date("Y-m-d")))
-            throw new Exception("O nascimento deve ser no passado");
 
         $cpf =  $rg	= $titulo = "";
         $cpf	        = filtraEntrada($_POST["form__cpf"]);
@@ -74,6 +72,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         $bairro	        = filtraEntrada($_POST["bairro"]);
         $cidade	        = filtraEntrada($_POST["cidade"]);
         $estado	        = filtraEntrada($_POST["estado"]);	
+
+        if ($nome == "")
+            throw new Exception("O nome deve ser fornecido");
+        if ($nascimento == "")
+            throw new Exception("A data de nascimento do funcionario deve ser fornecida");
+        if(strtotime($nascimento) >= strtotime(date("Y-m-d")))
+            throw new Exception("O nascimento deve ser no passado");
+        if ($sexo == "")
+            throw new Exception("O sexo do funcionario deve ser fornecido");
+        if ($estadocivil == "")
+            throw new Exception("O estado civil deve ser fornecido");
+        if ($especialidade == "")
+            throw new Exception("A especialidade deve ser fornecida");
+
+        if ($cpf == "")
+            throw new Exception("O CPF do funcionario deve ser fornecido");
+        if ($tlogradouro == "")
+            throw new Exception("O tipo lougradoro deve ser fornecido");
+        if ($logradouro == "")
+            throw new Exception("O tipo lougradoro deve ser fornecido");
+
+        if ($numero == "")
+            throw new Exception("O numero da residência deve ser fornecido");
+        if ($complemento == "")
+            throw new Exception("O complemento deve ser fornecido");
+        if ($bairro == "")
+            throw new Exception("O bairro deve ser fornecido");
+        if ($cidade == "")
+            throw new Exception("O cidade deve ser fornecida");
+        if ($estado == "")
+            throw new Exception("O estado deve ser fornecido");
+
     
 		$conn = conectaMySQL();
 
@@ -90,7 +120,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 			
     // Faz a ligação dos parâmetros em aberto com os valores.
     if (! $stmt->bind_param("ssssssss",
-    $nome, $nascimento, $sexo, $estadocivil, $especialidade,
+    $nome, $newformat, $sexo, $estadocivil, $especialidade,
     $cpf, $rg, $titulo))
   
       throw new Exception("Falha na operacao bind_param: " . $stmt->error);

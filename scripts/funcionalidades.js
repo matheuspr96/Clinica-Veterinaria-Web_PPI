@@ -77,3 +77,32 @@ function sendFormfuncionario()
 		}
 	});
 }
+function buscaEndereco(form__cep)
+{
+  $.ajax({
+	url: './php/busca_endereco.php',
+	type: 'POST',
+	async: true,
+	dataType: 'json',
+	data: {'form__cep':form__cep},         
+
+	success: function(result) {
+			
+	  if (result != "")
+	  {                  
+		document.forms[0]["logradouro"].value    = result.rua;
+		document.forms[0]["bairro"].value 		 = result.bairro;
+		document.forms[0]["cidade"].value        = result.cidade;
+	  }
+	  else{
+		  alert("Não existe o cep informado no banco");
+	  }
+	},
+
+	error: function(xhr, status, error) {
+	  alert(status + error + xhr.responseText);
+	}
+
+  });  
+
+}

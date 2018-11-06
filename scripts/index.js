@@ -262,7 +262,7 @@ $(() => {
 		},
 
 		error: error => {
-			alert("Algo deu errado!");
+			alert(error.responseText);
 			console.error(error);
 		}
   
