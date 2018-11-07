@@ -259,15 +259,19 @@ body {
 	margin-top: 1rem;			
 }
 .menu__item {
-	color: rgba(49, 52, 54, 1);
-	cursor: pointer;
-	transition: 0.05s color ease-in-out;
+		color: rgba(49, 52, 54, 1);
+		cursor: pointer;
+		transition: 0.05s color ease-in-out;
+		padding: 0.5rem;
+    	background: #7eb77991;
+    	margin: 0.1rem;
+    	border-radius: 0.4rem;
 }
 .menu__lista:hover .menu__item {
 	color: rgba(49, 52, 54, 0.6);
 }
 .menu__item:hover {
-	color: rgba(49, 52, 54, 1) !important;
+	color: rgb(255, 255, 255) !important;
 }
 
 
@@ -292,9 +296,6 @@ table {
 	vertical-align: middle;
 }
 
-.table td:last-child {
-	border-right: 0;
-}
 
 .table thead th {
 	font-weight: 400;

@@ -1,5 +1,5 @@
 <?php
-    //require "conexaoBanco.php"; 
+    require "conexaoBanco.php"; 
     class Endereco 
     {
     public $rua;
@@ -10,19 +10,19 @@
     try
     {
         $msgErro = "";
-        $conn = conectaMySQL();
+        $connEnd = conectaMySQL();
         $endereco = $cep = "";
-        if (isset($_GET["cep"]))
-        $cep = $_GET["cep"];
+        if (isset($_POST["form__cep"]))
+            $cep = $_POST["form__cep"];
 
-        $SQL = "
+        $sql = "
         SELECT Rua, Bairro, Cidade
         FROM Endereco
         WHERE Cep = ?;
         ";
 
-        if (! $stmt = $conn->prepare($SQL))
-            throw new Exception("Falha na operacao prepare: " . $conn->error);
+        if (! $stmt = $connEnd->prepare($sql))
+            throw new Exception("Falha na operacao prepare: " . $connEnd->error);
 
         if (! $stmt->bind_param("s", $cep))
             throw new Exception("Falha na operacao bind_param: " . $stmt->error);
@@ -32,29 +32,26 @@
             throw new Exception("Falha na operacao execute: " . $stmt->error);
 
         // Indica as variáveis PHP que receberão os resultados
+        $stmt->store_result();
         if (! $stmt->bind_result($rua, $bairro, $cidade))
-            throw new Exception("Falha na operacao bind_result: " . $stmt->error);  
+            throw new Exception("Falha na operacao bind_result: " . $stmt->error);
+        if($stmt->num_rows > 0)
+            $stmt->fetch();
         
+        $endereco = new Endereco();
 
-            $endereco = new Endereco();
-
-            $endereco->rua    = $rua;
-            $endereco->bairro = $bairro;
-            $endereco->cidade = $cidade;
+        $endereco->rua    = $rua;
+        $endereco->bairro = $bairro;
+        $endereco->cidade = $cidade;
     
         $jsonStr = json_encode($endereco);
-        $conn->close();
         echo $jsonStr;
 
     }
     catch (Exception $e)
     {
-        $conn->close();
-    $msgErro = $e->getMessage();
-    
-
+        $connEnd->close();
+        $msgErro = $e->getMessage();
+        echo $msgErro;
     }
-    if ($conn != null)
-    $conn->close();
-
 ?>

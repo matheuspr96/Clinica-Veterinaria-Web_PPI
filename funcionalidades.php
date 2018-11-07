@@ -2,7 +2,9 @@
 include "./php/conexaoBanco.php";
 require "./php/lista_contato.php";
 require "./php/lista_funcionario.php";
-require "./php/busca_endereco.php";
+require "./php/lista_agendamento.php";
+//require "./php/busca_endereco.php";
+
 
 ?>
 <!DOCTYPE html>
@@ -112,25 +114,29 @@ require "./php/busca_endereco.php";
             <table class="table table__responsive">
                 <thead>
                     <tr>
+                        <th>Nome Médico</th>
                         <th>Especialidade</th>
                         <th>Hora</th>
                         <th>Data</th>
+                        <th>Nome Paciente</th>
                         <th>Contato</th>
                     </tr>
                 </thead>
+
                 <tbody>
                 <?php
 
                         if ($arrayAgenda != "")
                         {
-
                             foreach ($arrayAgenda as $agenda)
                             {       
                             echo "
                             <tr>
+                                <td>$agenda->nome</td>
                                 <td>$agenda->especialidade</td>
                                 <td>$agenda->hora</td>
                                 <td>$agenda->data</td>
+                                <td>$agenda->nomePac</td>
                                 <td>$agenda->contato</td>
                             </tr>      
                             ";
@@ -139,6 +145,11 @@ require "./php/busca_endereco.php";
                     ?>
                 </tbody>
             </table>
+                <?php
+
+                if ($msgErro != "")
+                    echo "<p class='r'>A operação não pode ser realizada: $msgErro</p>";
+                ?>
         </article>
 
         <article class="cartao cartao_pag_cadast_funcionarios">
