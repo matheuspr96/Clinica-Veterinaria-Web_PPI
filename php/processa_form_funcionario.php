@@ -162,5 +162,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 		echo $msgErro;
     }
 }
+if ($conn != null)
+$conn->close();
 
 ?>

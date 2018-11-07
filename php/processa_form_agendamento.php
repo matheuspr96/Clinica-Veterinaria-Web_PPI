@@ -113,4 +113,6 @@ function filtraEntrada($dado)
 
 	return $dado;
 }
+if ($conn != null)
+$conn->close();
 ?>

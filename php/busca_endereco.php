@@ -11,10 +11,10 @@
     {
         $msgErro = "";
         //require "conexaoBanco.php"; 
-        //$conn = conectaMySQL();
+        $conn = conectaMySQL();
         $endereco = $cep = "";
-        if (isset($_POST["cep"]))
-        $cep = $_POST["cep"];
+        if (isset($_GET["cep"]))
+        $cep = $_GET["cep"];
 
         $SQL = "
         SELECT Rua, Bairro, Cidade
@@ -36,17 +36,13 @@
         if (! $stmt->bind_result($rua, $bairro, $cidade))
             throw new Exception("Falha na operacao bind_result: " . $stmt->error);  
         
-        
-        while ($stmt->fetch())
-        {
 
             $endereco = new Endereco();
 
             $endereco->rua    = $rua;
             $endereco->bairro = $bairro;
             $endereco->cidade = $cidade;
-        } 
-
+    
         $jsonStr = json_encode($endereco);
         echo $jsonStr;
 

@@ -1,5 +1,7 @@
 $(() => {
-
+//require "./php/lista_contato.php";
+//require "./php/lista_funcionario.php";
+//require "./php/busca_endereco.php";
 	/**
 	 * Menu navbar
 	 */

@@ -63,5 +63,6 @@
   {
     $msgErro = $e->getMessage();
   }
-
+  if ($conn != null)
+  $conn->close();
 ?>

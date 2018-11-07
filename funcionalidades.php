@@ -1,5 +1,5 @@
 <?php
-require "./php/conexaoBanco.php";
+include "./php/conexaoBanco.php";
 require "./php/lista_contato.php";
 require "./php/lista_funcionario.php";
 require "./php/busca_endereco.php";
@@ -118,128 +118,25 @@ require "./php/busca_endereco.php";
                         <th>Contato</th>
                     </tr>
                 </thead>
-                <!-- EMMET: tbody>tr*20>td{Especialidade $}+td{$:00}+td{$/01/2018}+td{Contato $} -->
                 <tbody>
-                    <tr>
-                        <td>Especialidade 1</td>
-                        <td>1:00</td>
-                        <td>1/01/2018</td>
-                        <td>Contato 1</td>
-                    </tr>
-                    <tr>
-                        <td>Especialidade 2</td>
-                        <td>2:00</td>
-                        <td>2/01/2018</td>
-                        <td>Contato 2</td>
-                    </tr>
-                    <tr>
-                        <td>Especialidade 3</td>
-                        <td>3:00</td>
-                        <td>3/01/2018</td>
-                        <td>Contato 3</td>
-                    </tr>
-                    <tr>
-                        <td>Especialidade 4</td>
-                        <td>4:00</td>
-                        <td>4/01/2018</td>
-                        <td>Contato 4</td>
-                    </tr>
-                    <tr>
-                        <td>Especialidade 5</td>
-                        <td>5:00</td>
-                        <td>5/01/2018</td>
-                        <td>Contato 5</td>
-                    </tr>
-                    <tr>
-                        <td>Especialidade 6</td>
-                        <td>6:00</td>
-                        <td>6/01/2018</td>
-                        <td>Contato 6</td>
-                    </tr>
-                    <tr>
-                        <td>Especialidade 7</td>
-                        <td>7:00</td>
-                        <td>7/01/2018</td>
-                        <td>Contato 7</td>
-                    </tr>
-                    <tr>
-                        <td>Especialidade 8</td>
-                        <td>8:00</td>
-                        <td>8/01/2018</td>
-                        <td>Contato 8</td>
-                    </tr>
-                    <tr>
-                        <td>Especialidade 9</td>
-                        <td>9:00</td>
-                        <td>9/01/2018</td>
-                        <td>Contato 9</td>
-                    </tr>
-                    <tr>
-                        <td>Especialidade 10</td>
-                        <td>10:00</td>
-                        <td>10/01/2018</td>
-                        <td>Contato 10</td>
-                    </tr>
-                    <tr>
-                        <td>Especialidade 11</td>
-                        <td>11:00</td>
-                        <td>11/01/2018</td>
-                        <td>Contato 11</td>
-                    </tr>
-                    <tr>
-                        <td>Especialidade 12</td>
-                        <td>12:00</td>
-                        <td>12/01/2018</td>
-                        <td>Contato 12</td>
-                    </tr>
-                    <tr>
-                        <td>Especialidade 13</td>
-                        <td>13:00</td>
-                        <td>13/01/2018</td>
-                        <td>Contato 13</td>
-                    </tr>
-                    <tr>
-                        <td>Especialidade 14</td>
-                        <td>14:00</td>
-                        <td>14/01/2018</td>
-                        <td>Contato 14</td>
-                    </tr>
-                    <tr>
-                        <td>Especialidade 15</td>
-                        <td>15:00</td>
-                        <td>15/01/2018</td>
-                        <td>Contato 15</td>
-                    </tr>
-                    <tr>
-                        <td>Especialidade 16</td>
-                        <td>16:00</td>
-                        <td>16/01/2018</td>
-                        <td>Contato 16</td>
-                    </tr>
-                    <tr>
-                        <td>Especialidade 17</td>
-                        <td>17:00</td>
-                        <td>17/01/2018</td>
-                        <td>Contato 17</td>
-                    </tr>
-                    <tr>
-                        <td>Especialidade 18</td>
-                        <td>18:00</td>
-                        <td>18/01/2018</td>
-                        <td>Contato 18</td>
-                    </tr>
-                    <tr>
-                        <td>Especialidade 19</td>
-                        <td>19:00</td>
-                        <td>19/01/2018</td>
-                        <td>Contato 19</td>
-                    </tr>
-                    <tr>
-                        <td>Especialidade 20</td>
-                        <td>20:00</td>
-                        <td>20/01/2018</td>
-                        <td>Contato 20</td>
-                    </tr>
+                <?php
+
+                        if ($arrayAgenda != "")
+                        {
+
+                            foreach ($arrayAgenda as $agenda)
+                            {       
+                            echo "
+                            <tr>
+                                <td>$agenda->especialidade</td>
+                                <td>$agenda->hora</td>
+                                <td>$agenda->data</td>
+                                <td>$agenda->contato</td>
+                            </tr>      
+                            ";
+                            }
+                        }
+                    ?>
                 </tbody>
             </table>
         </article>
