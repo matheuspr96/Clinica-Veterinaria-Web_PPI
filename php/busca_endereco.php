@@ -1,5 +1,5 @@
 <?php
-
+    //require "conexaoBanco.php"; 
     class Endereco 
     {
     public $rua;
@@ -10,7 +10,6 @@
     try
     {
         $msgErro = "";
-        //require "conexaoBanco.php"; 
         $conn = conectaMySQL();
         $endereco = $cep = "";
         if (isset($_GET["cep"]))
@@ -44,12 +43,16 @@
             $endereco->cidade = $cidade;
     
         $jsonStr = json_encode($endereco);
+        $conn->close();
         echo $jsonStr;
 
     }
     catch (Exception $e)
     {
+        $conn->close();
     $msgErro = $e->getMessage();
+    
+
     }
     if ($conn != null)
     $conn->close();

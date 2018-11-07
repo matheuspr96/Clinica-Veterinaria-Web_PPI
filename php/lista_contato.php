@@ -44,7 +44,7 @@
       $arrayContato[] = $contato;
     }
     
-    
+    $conn->close();
     return $arrayContato;
   }
 
@@ -61,8 +61,8 @@
   }
   catch (Exception $e)
   {
+    $conn->close();
     $msgErro = $e->getMessage();
   }
-  if ($conn != null)
-  $conn->close();
+  
 ?>
