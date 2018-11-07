@@ -95,6 +95,7 @@ function buscaEndereco(form__cep)
 		document.forms[0]["logradouro"].value    = result.rua;
 		document.forms[0]["bairro"].value 		 = result.bairro;
 		document.forms[0]["cidade"].value        = result.cidade;
+		document.forms[0]["estado"].value        = result.estado;
 	  }
 	  else{
 		  alert("Não existe o cep informado no banco");

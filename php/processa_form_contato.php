@@ -41,34 +41,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 		if ($mensagem == "")
 			throw new Exception("A mensagem de contato deve ser fornecida");
     	
-    
-		$conn = conectaMySQL();
-		$conn->begin_transaction();
+    try{
+			$conn = conectaMySQL();
+			$conn->begin_transaction();
 
 
-		$sql = "
-		  INSERT INTO P_CONTATO (IDContato, Nome, Email, Motivo, Mensagem)
-		   VALUES (null, ?, ?, ?, ?);
-		";
+			$sql = "
+				INSERT INTO P_CONTATO (IDContato, Nome, Email, Motivo, Mensagem)
+				VALUES (null, ?, ?, ?, ?);
+			";
 
-    // prepara a declaração SQL (stmt é uma abreviação de statement)
-    if (! $stmt = $conn->prepare($sql))
-      throw new Exception("Falha na operacao prepare: " . $conn->error);
+			// prepara a declaração SQL (stmt é uma abreviação de statement)
+			if (! $stmt = $conn->prepare($sql))
+				throw new Exception("Falha na operacao prepare: " . $conn->error);
+				
+			// Faz a ligação dos parâmetros em aberto com os valores.
+			if (! $stmt->bind_param("ssss", $nome, $email, $motivo, $mensagem))
+				throw new Exception("Falha na operacao bind_param: " . $stmt->error);
 			
-    // Faz a ligação dos parâmetros em aberto com os valores.
-    if (! $stmt->bind_param("ssss", $nome, $email, $motivo, $mensagem))
-      throw new Exception("Falha na operacao bind_param: " . $stmt->error);
+			if (! $stmt->execute())
+				throw new Exception("Falha na operacao execute: " . $stmt->error);
 		
-    if (! $stmt->execute())
-      throw new Exception("Falha na operacao execute: " . $stmt->error);
-	
-			$conn->commit();
-			echo "OK Dados cadastrados";
-	
+				$conn->commit();
+				echo "OK Dados cadastrados";
+		
+			}catch(Exception $e){
+				$conn->rollback();
+		}
+
 	}
 	catch (Exception $e)
 	{
-		$conn->rollback();
+		
 		http_response_code(400); 
 		$msgErro = $e->getMessage();
 		echo $msgErro;

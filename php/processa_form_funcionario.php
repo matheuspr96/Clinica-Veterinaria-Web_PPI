@@ -105,58 +105,62 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
             throw new Exception("O cidade deve ser fornecida");
         if ($estado == "")
             throw new Exception("O estado deve ser fornecido");
+     
+        try{
 
-    
-        $conn = conectaMySQL();
-        $conn->begin_transaction();
+                $conn = conectaMySQL();
+                $conn->begin_transaction();
+                $sql = "
+                    INSERT INTO FUNCIONARIO (IDFUNCIONARIO, NOME, NASCIMENTO, SEXO, ESTADOCIVIL, ESPECIALIDADE,
+                                            CPF, RG, TITULO)
+                    VALUES (null, ?, ?, ?, ?, ?, ?, ?, ?);
+                
+                ";
 
+            // prepara a declaração SQL (stmt é uma abreviação de statement)
+            if (! $stmt = $conn->prepare($sql))
+            throw new Exception("Falha na operacao prepare: " . $conn->error);
+                    
+            // Faz a ligação dos parâmetros em aberto com os valores.
+            if (! $stmt->bind_param("ssssssss",
+            $nome, $newformat, $sexo, $estadocivil, $especialidade,
+            $cpf, $rg, $titulo))
+        
+            throw new Exception("Falha na operacao bind_param: " . $stmt->error);
+                
+            if (! $stmt->execute())
+            throw new Exception("Falha na operacao execute: " . $stmt->error);
+                $stmt->close();
+            
+            $sql2 = "
+                INSERT INTO ENDERECO (IDENDERECO, CEP, TIPOLOUGRADORO, RUA_LOUGRADORO, NUMERO,
+                    COMPLEMENTO, BAIRRO, CIDADE, ESTADO, ID_FUNCIONARIO)
+                VALUES(null, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+            ";
+                // prepara a declaração SQL (stmt é uma abreviação de statement)
+            if (! $stmt2 = $conn->prepare($sql2))
+                throw new Exception("Falha na operacao prepare: " . $conn->error);
+                    
+            // Faz a ligação dos parâmetros em aberto com os valores.
+            if (! $stmt2->bind_param("sssissssi",
+            $cep, $tlogradouro, $logradouro, $numero, $complemento, 
+            $bairro, $cidade, $estado, mysqli_insert_id($conn)))
+                throw new Exception("Falha na operacao bind_param: " . $stmt2->error);
+                
+            if (! $stmt2->execute())
+                throw new Exception("Falha na operacao execute: " . $stmt2->error);
 
-		$sql = "
-            INSERT INTO FUNCIONARIO (IDFUNCIONARIO, NOME, NASCIMENTO, SEXO, ESTADOCIVIL, ESPECIALIDADE,
-                                    CPF, RG, TITULO)
-            VALUES (null, ?, ?, ?, ?, ?, ?, ?, ?);
-           
-        ";
-
-    // prepara a declaração SQL (stmt é uma abreviação de statement)
-    if (! $stmt = $conn->prepare($sql))
-      throw new Exception("Falha na operacao prepare: " . $conn->error);
-			
-    // Faz a ligação dos parâmetros em aberto com os valores.
-    if (! $stmt->bind_param("ssssssss",
-    $nome, $newformat, $sexo, $estadocivil, $especialidade,
-    $cpf, $rg, $titulo))
-  
-      throw new Exception("Falha na operacao bind_param: " . $stmt->error);
-		
-    if (! $stmt->execute())
-      throw new Exception("Falha na operacao execute: " . $stmt->error);
-        $stmt->close();
-    
-    $sql2 = "
-        INSERT INTO ENDERECO (IDENDERECO, CEP, TIPOLOUGRADORO, RUA_LOUGRADORO, NUMERO,
-            COMPLEMENTO, BAIRRO, CIDADE, ESTADO, ID_FUNCIONARIO)
-        VALUES(null, ?, ?, ?, ?, ?, ?, ?, ?, ?);
-    ";
-        // prepara a declaração SQL (stmt é uma abreviação de statement)
-    if (! $stmt2 = $conn->prepare($sql2))
-        throw new Exception("Falha na operacao prepare: " . $conn->error);
-              
-      // Faz a ligação dos parâmetros em aberto com os valores.
-    if (! $stmt2->bind_param("sssissssi",
-      $cep, $tlogradouro, $logradouro, $numero, $complemento, 
-      $bairro, $cidade, $estado, mysqli_insert_id($conn)))
-        throw new Exception("Falha na operacao bind_param: " . $stmt2->error);
+                $conn->commit();
+                echo "OK Dados cadastrados";
           
-      if (! $stmt2->execute())
-        throw new Exception("Falha na operacao execute: " . $stmt2->error);
-
-        $conn->commit();
-        echo "OK Dados cadastrados";
+        }
+        catch(Exception $e)
+        {
+            $conn->rollback();
+        }
     }
 	catch (Exception $e)
 	{
-        $conn->rollback();
 		http_response_code(400); 
         $msgErro = $e->getMessage();
 		echo $msgErro;

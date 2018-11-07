@@ -2,9 +2,10 @@
     require "conexaoBanco.php"; 
     class Endereco 
     {
-    public $rua;
-    public $bairro;
-    public $cidade;
+        public $rua;
+        public $bairro;
+        public $cidade;
+        public $estado;
     }
 
     try
@@ -16,7 +17,7 @@
             $cep = $_POST["form__cep"];
 
         $sql = "
-        SELECT Rua, Bairro, Cidade
+        SELECT Rua, Bairro, Cidade, Estado
         FROM Endereco
         WHERE Cep = ?;
         ";
@@ -33,16 +34,18 @@
 
         // Indica as variáveis PHP que receberão os resultados
         $stmt->store_result();
-        if (! $stmt->bind_result($rua, $bairro, $cidade))
+        if (! $stmt->bind_result($rua, $bairro, $cidade, $estado))
             throw new Exception("Falha na operacao bind_result: " . $stmt->error);
-        if($stmt->num_rows > 0)
-            $stmt->fetch();
+        if($stmt->num_rows > 0)   
+
+        $stmt->fetch();
         
         $endereco = new Endereco();
 
         $endereco->rua    = $rua;
         $endereco->bairro = $bairro;
         $endereco->cidade = $cidade;
+        $endereco->estado = $estado;
     
         $jsonStr = json_encode($endereco);
         echo $jsonStr;
