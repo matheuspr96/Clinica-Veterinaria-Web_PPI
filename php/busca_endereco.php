@@ -10,8 +10,8 @@
     try
     {
         $msgErro = "";
-        require "conexaoBanco.php"; 
-        $conn = conectaMySQL();
+        //require "conexaoBanco.php"; 
+        //$conn = conectaMySQL();
         $endereco = $cep = "";
         if (isset($_POST["cep"]))
         $cep = $_POST["cep"];

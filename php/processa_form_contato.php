@@ -43,6 +43,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     	
     
 		$conn = conectaMySQL();
+		$conn->begin_transaction();
+
 
 		$sql = "
 		  INSERT INTO P_CONTATO (IDContato, Nome, Email, Motivo, Mensagem)
@@ -60,11 +62,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     if (! $stmt->execute())
       throw new Exception("Falha na operacao execute: " . $stmt->error);
 	
+			$conn->commit();
 			echo "OK Dados cadastrados";
 	
 	}
 	catch (Exception $e)
 	{
+		$conn->rollback();
 		http_response_code(400); 
 		$msgErro = $e->getMessage();
 		echo $msgErro;

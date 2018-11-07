@@ -51,6 +51,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 			throw new Exception("O contato deve ser fornecido");
 
 		$conn = conectaMySQL();
+		$conn->begin_transaction();
+
 
 		//INSERE NA TABELA PACIENTE
 		$sql = "
@@ -87,12 +89,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         throw new Exception("Falha na operacao bind_param: " . $stmt2->error);
           
       if (! $stmt2->execute())
-        throw new Exception("Falha na operacao execute: " . $stmt2->error);
-          echo "OK Dados cadastrados";
+				throw new Exception("Falha na operacao execute: " . $stmt2->error);
+				
+				$conn->commit();
+        echo "OK Dados cadastrados";
 
 	}
 	catch (Exception $e)
 	{
+		$conn->rollback();
 		http_response_code(400); 
 		$msgErro = $e->getMessage();
 		echo $msgErro;

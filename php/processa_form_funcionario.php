@@ -14,6 +14,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 {
 	try
 	{  
+
+        
 		$msgErro = "";
 		if (!isset($_POST["funcionario__nome"]))
 			throw new Exception("O nome do funcionário deve ser fornecido");
@@ -105,7 +107,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
             throw new Exception("O estado deve ser fornecido");
 
     
-		$conn = conectaMySQL();
+        $conn = conectaMySQL();
+        $conn->begin_transaction();
+
 
 		$sql = "
             INSERT INTO FUNCIONARIO (IDFUNCIONARIO, NOME, NASCIMENTO, SEXO, ESTADOCIVIL, ESPECIALIDADE,
@@ -146,10 +150,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
           
       if (! $stmt2->execute())
         throw new Exception("Falha na operacao execute: " . $stmt2->error);
-          echo "OK Dados cadastrados";
+
+        $conn->commit();
+        echo "OK Dados cadastrados";
     }
 	catch (Exception $e)
 	{
+        $conn->rollback();
 		http_response_code(400); 
         $msgErro = $e->getMessage();
 		echo $msgErro;

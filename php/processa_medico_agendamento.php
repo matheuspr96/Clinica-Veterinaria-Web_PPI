@@ -6,7 +6,6 @@
         public $nomevet;
     }
 
-
     try
     { 
         require "conexaoBanco.php"; 
